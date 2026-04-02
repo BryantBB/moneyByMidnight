@@ -20,14 +20,14 @@ namespace UltimateTexasHoldEm
     /// ── ONE-TIME SETUP ──────────────────────────────────────────────────────
     ///
     ///  Resources.Load only works on assets inside a folder named "Resources".
-    ///  Your prefabs are in Assets/Asset_PlayingCards/Prefabs/Deck01/ which is
-    ///  outside Resources, so do this once:
+    ///  In this project the prefab path is now:
+    ///  Assets/PokerAssets/Asset_PlayingCards/Resources/Deck01
     ///
-    ///  1. Create:  Assets/Asset_PlayingCards/Resources/Deck01/
+    ///  1. Put all Deck01 prefabs in that Resources/Deck01 folder
+    ///     (e.g. Deck01_Club_2.prefab).
     ///
-    ///  2. Select all prefabs in Prefabs/Deck01/ → Ctrl+D to duplicate →
-    ///     drag the duplicates into Resources/Deck01/
-    ///     (They stay linked to the same sprites — no data is copied.)
+    ///  2. Set Resource Path in inspector to "Deck01" (default). This script
+    ///     also handles an empty path for top-level Resources lookup.
     ///
     ///  3. Attach this script to your GameManager (persistent) object.
     ///     The Inspector defaults are already correct — no changes needed.
@@ -40,7 +40,7 @@ namespace UltimateTexasHoldEm
 
         // ── Inspector ─────────────────────────────────────────────────────────
         [Header("Resource Path")]
-        [Tooltip("Folder name inside any Resources/ folder. Default: 'Deck01'")]
+        [Tooltip("Folder name inside any Resources/ folder. Default: 'Deck01'. Set empty if prefabs are directly under Resources.")]
         [SerializeField] private string resourceFolder = "Deck01";
 
         [Tooltip("Filename prefix used by the asset package. Default: 'Deck01'")]
@@ -150,13 +150,25 @@ namespace UltimateTexasHoldEm
         /// </summary>
         private void LoadBothSpritesFromPrefab(string prefabName)
         {
-            string path    = $"{resourceFolder}/{prefabName}";
+            string path = string.IsNullOrWhiteSpace(resourceFolder)
+                ? prefabName
+                : $"{resourceFolder}/{prefabName}";
+
             GameObject prefab = Resources.Load<GameObject>(path);
+
+            if (prefab == null && !string.IsNullOrWhiteSpace(resourceFolder))
+            {
+                // Fallback for legacy folder layout (Resources/Deck01/)
+                string fallback = prefabName;
+                prefab = Resources.Load<GameObject>(fallback);
+                if (prefab != null)
+                    path = fallback;
+            }
 
             if (prefab == null)
             {
                 Debug.LogWarning($"[CardSpriteLibrary] Prefab not found: '{path}'\n" +
-                                 $"Did you copy it into Assets/.../Resources/{resourceFolder}/?");
+                                 $"Did you copy it into Assets/.../Resources/{(string.IsNullOrWhiteSpace(resourceFolder) ? "" : resourceFolder + "/")}? ");
                 return;
             }
 
