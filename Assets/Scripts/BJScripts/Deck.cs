@@ -23,7 +23,7 @@ public class Deck : MonoBehaviour
         for (int i = 0; i < _cards.Count; i++)
         {
             Debug.Log("Card i="+i);
-            GameObject cardGO = Instantiate(cardPrefab, new Vector3(5,0,0), Quaternion.identity);
+            GameObject cardGO = Instantiate(cardPrefab, new Vector3(10,0,0), Quaternion.identity);
             Card card = cardGO.GetComponent<Card>();
             card.Initialize(_cards[i]);
             _deck.Add(card);
@@ -69,10 +69,10 @@ public class Deck : MonoBehaviour
         hitCount += 1;
         DealPlayerCard();
         if (hitCount == 1){
-            _playerHand[hitCount+1].transform.position = new Vector3(hitCount+2,-3,0);
+            _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6,0);
         } else
         {    
-        _playerHand[hitCount+1].transform.position = new Vector3(hitCount+2,-3,0);
+        _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6,0);
         }
         _playerHand[hitCount+1].FlipCard();
     }
@@ -99,21 +99,21 @@ public class Deck : MonoBehaviour
     {
         hitCount = 0;
         DealNPCCard();
-        _npcHand[0].transform.position = new Vector3(-3,0,0);
+        _npcHand[0].transform.position = new Vector3(-6,0,0);
         _npcHand[0].FlipCard();
         DealPlayerCard();
-        _playerHand[0].transform.position = new Vector3(-1,-3,0);
+        _playerHand[0].transform.position = new Vector3(-2,-6,0);
         _playerHand[0].FlipCard();
         DealDealerCard();
-        _dealerHand[0].transform.position = new Vector3(0,3,0);
+        _dealerHand[0].transform.position = new Vector3(0,6,0);
         _dealerHand[0].FlipCard();
         DealNPCCard();
-        _npcHand[1].transform.position = new Vector3(-3,1,0);
+        _npcHand[1].transform.position = new Vector3(-6,2,0);
         DealPlayerCard();
-        _playerHand[1].transform.position = new Vector3(1,-3,0);
+        _playerHand[1].transform.position = new Vector3(2,-6,0);
         _playerHand[1].FlipCard();
         DealDealerCard();
-        _dealerHand[1].transform.position = new Vector3(2,3,0);
+        _dealerHand[1].transform.position = new Vector3(4,6,0);
 
         Debug.Log("player hand = " + _playerHand);
         Debug.Log("dealer hand = " + _dealerHand);

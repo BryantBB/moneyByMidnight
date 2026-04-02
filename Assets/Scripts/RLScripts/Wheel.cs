@@ -54,7 +54,7 @@ public class Wheel : MonoBehaviour
                 if (!hasCheckedWinner)
                 {
                     // Enable the collider so OverlapBox can see it
-                    pointer.GetComponent<BoxCollider>().enabled = true;
+                    pointer.GetComponent<BoxCollider2D>().enabled = true;
                     
                     if (pointerScript != null)
                     {
@@ -75,13 +75,13 @@ public class Wheel : MonoBehaviour
     {
         isSpin = true;
         hasCheckedWinner = false; 
-        pointer.GetComponent<BoxCollider>().enabled = false;
+        pointer.GetComponent<BoxCollider2D>().enabled = false;
         Speed = Random.Range(500f, 900f);
     
         // 2. Disable the pointer collider until the wheel stops again
         if (pointer != null)
         {
-        pointer.GetComponent<BoxCollider>().enabled = false;
+        pointer.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

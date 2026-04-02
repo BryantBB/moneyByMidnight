@@ -193,7 +193,7 @@ public class Betting : MonoBehaviour
         GameObject newChip = Instantiate(chipPrefab, buttonObjects[index].transform);
 
         // 2. Force the scale back to 1x1x1 so it ignores the button's size
-        newChip.transform.localScale = Vector3.one;
+        // newChip.transform.localScale = Vector3.one;
 
         // 3. Access the RectTransform
         RectTransform chipRect = newChip.GetComponent<RectTransform>();
