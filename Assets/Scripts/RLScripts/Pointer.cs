@@ -23,38 +23,6 @@ public class Pointer : MonoBehaviour
         }
     }
 
-    // public GameObject GetWinningSection()
-    // {        
-    //     Vector3 boxSize = new Vector3(1f, 1f, 1f); 
-    
-    //     // Detects all colliders within the Arrow's space
-    //     // Collider2D[] hitColliders = Physics2D.OverlapBox(tip.position, boxSize / 2, tip.rotation, sectionLayer);
-    //     Collider2D[] hitColliders = Physics2D.OverlapBox(tip.position, boxSize / 2, tip.rotation, sectionLayer);
-
-
-    //     GameObject bestSection = null;
-    //     float closestDistance = Mathf.Infinity;
-
-    //     // Decides which section is closer if the Arrow hits many
-    //     foreach (Collider2D hit in hitColliders)
-    //     {
-    //         print("hit");
-    //         float distance = Vector3.Distance(tip.position, hit.bounds.center);
-
-    //         if (distance < closestDistance)
-    //         {
-    //             closestDistance = distance;
-    //             bestSection = hit.gameObject;
-    //         }
-    //     }
-
-    //     if (bestSection != null && bettingScript != null)
-    //     {
-    //         bettingScript.ResolveSpin(bestSection.name);
-    //     }
-    //     return bestSection;
-    // }
-
     public GameObject GetWinningSection()
     {        
         Vector2 boxSize = new Vector2(1f, 1f); 

@@ -10,7 +10,6 @@ public class Betting : MonoBehaviour
 {
     public GameObject chipPrefab;
     public Transform chipContainer; // Optional: A blank UI Panel to hold all chips
-    public RectTransform[] buttonLocations;
     public GameObject[] buttonObjects;
 
     public int Money = 500;
@@ -39,9 +38,9 @@ public class Betting : MonoBehaviour
     void Update()
     {
         ButtonsPressed();
-        totalBetText.text = $"Total Placed Bets: {totalBet}";
-        currentBetText.text = $"Current Bet: {currentBet}";
-        moneyText.text = $"Money: {Money}";
+        totalBetText.text = $"Total Placed Bets: <color=white>{totalBet}</color>";
+        currentBetText.text = $"Current Bet: <color=white>{currentBet}</color>";
+        moneyText.text = $"Money: <color=white>{Money}</color>";
 
         betButton.interactable = totalBet > 0;
     }
@@ -187,29 +186,25 @@ public class Betting : MonoBehaviour
     // written with help from Gemini
     void SpawnChip(int index)
     {
-        if (chipPrefab == null || buttonObjects[index] == null) return;
+        if (chipPrefab == null || buttonObjects[index] == null || chipContainer == null) return;
 
-        // 1. Create the chip as a child of the button
-        GameObject newChip = Instantiate(chipPrefab, buttonObjects[index].transform);
+        // 1. Spawn the chip inside the Global Container (NOT the button)
+        // This ensures it uses the Canvas scale, which is the same for everyone
+        GameObject newChip = Instantiate(chipPrefab, chipContainer);
 
-        // 2. Force the scale back to 1x1x1 so it ignores the button's size
-        // newChip.transform.localScale = Vector3.one;
-
-        // 3. Access the RectTransform
+        // 2. Force the chip to be the exact size you want in pixels
         RectTransform chipRect = newChip.GetComponent<RectTransform>();
-        //--- NEW FIX: Force the Anchors and Size
-        chipRect.anchorMin = new Vector2(0.5f, 0.5f);
-        chipRect.anchorMax = new Vector2(0.5f, 0.5f);
-        chipRect.pivot = new Vector2(0.5f, 0.5f);
         
-        // Set this to whatever size you want your chips to be (e.g., 40x40 pixels)
+        // Set these to your preferred chip size
         chipRect.sizeDelta = new Vector2(40, 40); 
+        chipRect.localScale = Vector3.one;
 
-        // 4. Center it
-        chipRect.anchoredPosition = Vector2.zero;
-        
-        // 5. Give it a tiny random offset so they stack naturally
-        float randomOffset = 10f;
+        // 3. Move the chip to the BUTTON'S position
+        // Since they are both in the UI/Canvas, transform.position works great
+        newChip.transform.position = buttonObjects[index].transform.position;
+
+        // 4. Add the random "poker stack" jitter
+        float randomOffset = 8f;
         chipRect.anchoredPosition += new Vector2(
             UnityEngine.Random.Range(-randomOffset, randomOffset),
             UnityEngine.Random.Range(-randomOffset, randomOffset)
@@ -218,17 +213,10 @@ public class Betting : MonoBehaviour
 
     public void ClearAllVisualChips()
     {
-        foreach (GameObject btn in buttonObjects)
+        // Simply destroy everything inside the dedicated chip folder
+        foreach (Transform child in chipContainer)
         {
-            if (btn == null) continue;
-            // Delete every child object (the chips) attached to the button
-            foreach (Transform child in btn.transform)
-            {
-                if (child.CompareTag("Chip"))
-                {
-                    Destroy(child.gameObject);
-                }
-            }
+            Destroy(child.gameObject);
         }
     }   
 }
