@@ -17,6 +17,7 @@ public class SceneTeleport : MonoBehaviour
         if (Keyboard.current.f2Key.wasPressedThisFrame) SceneManager.LoadScene("Tic-Tac-Toe Slots");
         if (Keyboard.current.f3Key.wasPressedThisFrame) SceneManager.LoadScene("Roulette");
         if (Keyboard.current.f4Key.wasPressedThisFrame) SceneManager.LoadScene("BJScene");
+        if (Keyboard.current.f5Key.wasPressedThisFrame) SceneManager.LoadScene("Poker");
 
     }
 }
