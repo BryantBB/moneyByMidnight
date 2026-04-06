@@ -31,6 +31,8 @@ namespace UltimateTexasHoldEm
         [SerializeField] private TMP_Text blindBetLabel;
         [SerializeField] private TMP_Text playBetLabel;
 
+        [SerializeField] private GameObject betLabels;
+
         // ── Card Areas ────────────────────────────────────────────────────────
         [Header("Card Areas")]
         [SerializeField] private Transform playerCardArea;
@@ -122,6 +124,7 @@ namespace UltimateTexasHoldEm
 
         public void Btn_NewRound()     => game.StartNewRound();
 
+
         // ═════════════════════════════════════════════════════════════════════
         //  Event Handlers
         // ═════════════════════════════════════════════════════════════════════
@@ -130,7 +133,7 @@ namespace UltimateTexasHoldEm
         {
             if (phaseText) phaseText.text = PhaseLabel(phase);
             SetAllPanels(phase);
-            RefreshBetLabels();
+            RefreshBetLabels(phase);
         }
 
         private void HandleBalanceChanged(float balance) => UpdateBalance(balance);
@@ -175,9 +178,9 @@ namespace UltimateTexasHoldEm
             {
                 string outcome = result.Outcome switch
                 {
-                    PayoutCalculator.Outcome.PlayerWin => "🎉 You Win!",
-                    PayoutCalculator.Outcome.DealerWin => "😞 Dealer Wins",
-                    _                                  => "🤝 Push"
+                    PayoutCalculator.Outcome.PlayerWin => "You Win!",
+                    PayoutCalculator.Outcome.DealerWin => "Dealer Wins",
+                    _                                  => "Push"
                 };
 
                 string noQualify = result.DealerQualifies
@@ -266,8 +269,10 @@ namespace UltimateTexasHoldEm
             if (balanceText) balanceText.text = $"Balance: ${bal:N2}";
         }
 
-        private void RefreshBetLabels()
+        private void RefreshBetLabels(GamePhase phase)
         {
+            betLabels?.SetActive(phase != GamePhase.Showdown);
+            if (phase == GamePhase.PlaceBets) resultText.text = "";
             if (anteBetLabel)  anteBetLabel.text  = $"Ante: ${game.AnteBet:N2}";
             if (blindBetLabel) blindBetLabel.text = $"Blind: ${game.BlindBet:N2}";
             if (playBetLabel)  playBetLabel.text  = $"Play: ${game.PlayBet:N2}";

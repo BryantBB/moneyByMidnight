@@ -113,7 +113,7 @@ namespace UltimateTexasHoldEm
             float amount = AnteBet * 2f;
             if (!TrySpend(amount)) return;
 
-            PlayBet = amount;
+            PlayBet += amount;
             Msg($"Raised 2x — Play: ${PlayBet:0.##}");
             DealTurnRiver();
         }
@@ -132,7 +132,7 @@ namespace UltimateTexasHoldEm
             if (Phase != GamePhase.TurnRiver) return;
             if (!TrySpend(AnteBet)) return;
 
-            PlayBet = AnteBet;
+            PlayBet += AnteBet;
             Msg($"Raised 1x — Play: ${PlayBet:0.##}");
             RunShowdown();
         }
