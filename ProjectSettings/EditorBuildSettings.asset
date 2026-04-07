@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Roulette.unity
     guid: 3ef547764a8fb2245aaab5e2fe1f0069
+  - enabled: 1
+    path: Assets/Scenes/Poker.unity
+    guid: e25eb2f57760349a685aa75bc29951e4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0d1ce2f4af358104faa85d361a141cb5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
