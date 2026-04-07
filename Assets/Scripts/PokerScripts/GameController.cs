@@ -153,9 +153,8 @@ namespace UltimateTexasHoldEm
 
             if (Balance < minAnte * 2f)
             {
-                Msg("Reloading chips to $1,000.");
-                Balance = startingBalance;
-                OnBalanceChanged?.Invoke(Balance);
+                Msg("Insufficient Funds. Game Over.");
+                
             }
 
             PlayerHand.Clear();

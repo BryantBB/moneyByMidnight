@@ -61,6 +61,12 @@ namespace UltimateTexasHoldEm
         [Tooltip("Full-screen Image that briefly pulses green/red on round end. Raycast Target must be OFF.")]
         [SerializeField] private Image screenFlash;
 
+        // help screen objects
+        [SerializeField] private GameObject helpButton;
+        [SerializeField] private GameObject helpPanel;
+
+        [SerializeField] private GameObject closeHelpButton;
+
         // ── Private ───────────────────────────────────────────────────────────
         private readonly List<CardView> _playerCards    = new();
         private readonly List<CardView> _dealerCards    = new();
@@ -72,7 +78,7 @@ namespace UltimateTexasHoldEm
         private void Start()
         {
             if (game == null) game = FindFirstObjectByType<GameController>();
-
+            helpPanel.SetActive(true);
             game.OnPhaseChanged        += HandlePhaseChanged;
             game.OnBalanceChanged      += HandleBalanceChanged;
             game.OnPlayerCardsDealt    += HandlePlayerCards;
@@ -123,6 +129,10 @@ namespace UltimateTexasHoldEm
         public void Btn_Fold()         => game.Fold();
 
         public void Btn_NewRound()     => game.StartNewRound();
+
+        public void Open_HelpPanel() => helpPanel.SetActive(true);
+        public void Close_HelpPanel() => helpPanel.SetActive(false);
+
 
 
         // ═════════════════════════════════════════════════════════════════════

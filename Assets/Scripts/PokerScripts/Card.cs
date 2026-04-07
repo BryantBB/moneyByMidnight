@@ -40,8 +40,6 @@ namespace UltimateTexasHoldEm
             _             => "?"
         };
 
-        public bool IsRed => Suit == Suit.Hearts || Suit == Suit.Diamonds;
-
         public override string ToString() => ShortName;
     }
 }
