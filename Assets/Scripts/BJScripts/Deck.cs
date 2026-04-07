@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem.LowLevel;
+using System.Linq;
 
 public class Deck : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class Deck : MonoBehaviour
             _dealerHand.RemoveAt(0);
         }
         hitCount = 0;
+        if (_playerHand.Any() || _dealerHand.Any() || _npcHand.Any())
+        {
+            ResetForDeal();
+        }
     }
 
 
@@ -93,6 +98,14 @@ public class Deck : MonoBehaviour
     {
         _dealerHand.Add(_deck[0]);
         _deck.RemoveAt(0);
+    }
+
+    public void DealDealerHit(int dealerHit)
+    {
+       _dealerHand.Add(_deck[0]);
+       _deck.RemoveAt(0);
+       _dealerHand[1+dealerHit].transform.position = new Vector3 (dealerHit-4,6,0);
+       _dealerHand[1+dealerHit].FlipCard();
     }
 
     public void DealAllHands()

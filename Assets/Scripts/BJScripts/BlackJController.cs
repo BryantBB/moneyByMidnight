@@ -14,6 +14,7 @@ public class BlackJController : MonoBehaviour
     public Button standButton;
     public Button dealButton;
     public Button resetButton;
+    public ResultText resText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,15 +53,15 @@ public class BlackJController : MonoBehaviour
     {
         int playerScore = ScoreHand(_gamedeck.getPlayerHand());
         int dealerScore = ScoreHand(_gamedeck.getDealerHand());
+        int dealerHit = 0;
         if(playerScore > 21)
         {
             return "Player Lost";
         }
         while (dealerScore < 17)
         {
-            _gamedeck.DealDealerCard();
-            _gamedeck.getDealerHand()[1+dealerHit].transform.position = new Vector3 (dealerHit-3,3,0);
-            _gamedeck.getDealerHand()[1+dealerHit].FlipCard();
+            dealerHit += 1;
+            _gamedeck.DealDealerHit(dealerHit);
             dealerScore = ScoreHand(_gamedeck.getDealerHand());
         }
         if(dealerScore > 21)
@@ -75,14 +76,15 @@ public class BlackJController : MonoBehaviour
         {
             return "Player Won";
         }
-        return "Dealer Won";
+        return "Player Lost";
     }
 
     public void DisplayResult()
     {
         string result = ScoreAllHands();
         _gamedeck.getDealerHand()[1].FlipCard();
-        Debug.Log(result);
+        resText.ShowText(result,3);
+        Invoke("ResetDeck",3);
     }
 
     public void DealAllHands()
