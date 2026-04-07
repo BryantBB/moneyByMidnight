@@ -3784,7 +3784,7 @@ RectTransform:
   m_Father: {fileID: 218636741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4211,8 +4211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4.826, y: 0.000002788}
+  m_SizeDelta: {x: 1.609, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1205977933
 MonoBehaviour:
@@ -4274,10 +4274,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Rules: UTH is played in phases. The five phases are as follows\n\n<color=#cc2200>Place
+    Bets</color> -> <color=#f58027>Pre-Flop</color> -> <color=#f5e427>Flop</color>
+    -> <color=#2837fc>Turn/River</color> -> <color=#861eeb>Showdown</color>\n\n<color=#cc2200>Place
+    Bets:</color> Before any cards are dealt, use the input field to wager a certain
+    amount for the ante and blind. Minimum bet is $5 and max bet is $500. Leaving
+    an empty input or typing a number outside of the min/max bounds will wager $10.
+    Click deal to deal the cards. \n\n<color=#f58027>Pre-Flop:</color> Before the
+    flop is dealt, you can bet 3x or 4x your ante wager as a \"play\" bet, or you
+    can check (bet nothing) to see the flop. \n\n<color=#f5e427>Flop:</color> \nAfter
+    flop is dealt, you can bet 2x the ante wager as a play bet, or you can check
+    through to see the turn and river. \n\n<color=#2837fc>Turn/River:</color> After
+    the turn and river are dealt, you can make a final play bet of 1x the ante, or
+    you must fold. \n\n<color=#861eeb>Showdown:</color> Dealer flips over their hand
+    and the best hand wins. Hand rankings are as follows\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f9aa37987194f64ebeee01dad058a5d, type: 2}
+  m_sharedMaterial: {fileID: -2449852506873499995, guid: 9f9aa37987194f64ebeee01dad058a5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4301,8 +4314,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4340,7 +4353,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 10.457066, z: 5.630707, w: -36.98234}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5010,7 +5023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1530079248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5270,8 +5283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.303}
-  m_SizeDelta: {x: 309.1, y: 10}
+  m_AnchoredPosition: {x: 0, y: -19.446}
+  m_SizeDelta: {x: 299.444, y: 134.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599083745
 MonoBehaviour:
@@ -5297,7 +5310,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2072186283}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 1
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
@@ -5925,7 +5938,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: -3.222, y: -4.037}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1888989569
 MonoBehaviour:
@@ -6436,9 +6449,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -13.5}
-  m_SizeDelta: {x: 20, y: -17}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 296.222, y: -53.84}
+  m_SizeDelta: {x: 21.126, y: -42.74}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2072186283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6481,9 +6494,9 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1113498613}
   m_HandleRect: {fileID: 1113498612}
-  m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Direction: 3
+  m_Value: 1
+  m_Size: 0.46347448
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
