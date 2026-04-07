@@ -114,10 +114,6 @@ public class Deck : MonoBehaviour
         _playerHand[1].FlipCard();
         DealDealerCard();
         _dealerHand[1].transform.position = new Vector3(4,6,0);
-
-        Debug.Log("player hand = " + _playerHand);
-        Debug.Log("dealer hand = " + _dealerHand);
-        Debug.Log("npc hand = " + _npcHand);
     }
 }
 

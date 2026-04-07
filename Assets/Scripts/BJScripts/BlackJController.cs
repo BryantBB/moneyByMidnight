@@ -59,6 +59,8 @@ public class BlackJController : MonoBehaviour
         while (dealerScore < 17)
         {
             _gamedeck.DealDealerCard();
+            _gamedeck.getDealerHand()[1+dealerHit].transform.position = new Vector3 (dealerHit-3,3,0);
+            _gamedeck.getDealerHand()[1+dealerHit].FlipCard();
             dealerScore = ScoreHand(_gamedeck.getDealerHand());
         }
         if(dealerScore > 21)
