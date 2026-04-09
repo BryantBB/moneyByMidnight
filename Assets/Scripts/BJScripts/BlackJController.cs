@@ -34,6 +34,7 @@ public class BlackJController : MonoBehaviour
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
         _gamedeck.ResetDeck();
+        Invoke("DealAllHands",1);
     }
 
     private static int ParseInput(TMP_InputField field, int fallback) // adapted from josh's code
@@ -64,6 +65,7 @@ public class BlackJController : MonoBehaviour
 
     public string ScoreAllHands()
     {
+        HideButtons();
         int playerScore = ScoreHand(_gamedeck.getPlayerHand());
         int dealerScore = ScoreHand(_gamedeck.getDealerHand());
         int dealerHit = 0;
@@ -104,7 +106,21 @@ public class BlackJController : MonoBehaviour
     public void DealAllHands()
     {
         _gamedeck.DealAllHands();
+        Invoke("ShowButtons",1);
     }
+    
+    private void ShowButtons()
+    {
+        hitButton.gameObject.SetActive(true);
+        standButton.gameObject.SetActive(true);
+    }
+
+    private void HideButtons()
+    {
+        hitButton.gameObject.SetActive(false);
+        standButton.gameObject.SetActive(false);
+    }
+
     public void DealHit()
     {
         _gamedeck.DealHit();
@@ -112,6 +128,7 @@ public class BlackJController : MonoBehaviour
 
     public void ResetDeck()
     {
+        StartBJ();
         _gamedeck.ResetForDeal();
     }
 }
