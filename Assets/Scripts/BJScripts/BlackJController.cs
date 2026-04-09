@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine.XR;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem.Interactions;
+using TMPro;
 
 public class BlackJController : MonoBehaviour
 {
@@ -14,17 +15,29 @@ public class BlackJController : MonoBehaviour
     public Button standButton;
     public Button dealButton;
     public Button resetButton;
+    public Button closehelp;
     public ResultText resText;
+    public GameObject betPanel;
+    public Button placeBet;
+    public TMP_InputField betInput;
+    private int bet;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void StartBJ()
     {
-        _gamedeck.ResetDeck();
-        // dealButton.onClick.AddListener(DealAllHands);
-        // hitButton.onClick.AddListener(DealHit);
-        // standButton.onClick.AddListener(DisplayResult);
-        // resetButton.onClick.AddListener(ResetDeck);
+        betPanel.SetActive(true);
     }
+
+    public void StartDeal()
+    {
+        bet = ParseInput(betInput, 10); // adapted from josh's code
+        GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
+        betPanel.SetActive(false);
+        _gamedeck.ResetDeck();
+    }
+
+    private static int ParseInput(TMP_InputField field, int fallback) // adapted from josh's code
+        => field != null && int.TryParse(field.text, out int v) ? v : fallback;
 
     public int ScoreHand(List<Card> hand)
     {
@@ -81,6 +94,7 @@ public class BlackJController : MonoBehaviour
 
     public void DisplayResult()
     {
+        GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "";
         string result = ScoreAllHands();
         _gamedeck.getDealerHand()[1].FlipCard();
         resText.ShowText(result,3);

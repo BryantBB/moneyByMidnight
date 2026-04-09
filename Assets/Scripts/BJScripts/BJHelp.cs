@@ -6,6 +6,7 @@ public class BJHelp : MonoBehaviour
     public GameObject _helpPanel;
     public Button _closeButton;
     public Button _openButton;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
