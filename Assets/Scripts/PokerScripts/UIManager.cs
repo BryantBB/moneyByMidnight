@@ -18,7 +18,6 @@ namespace UltimateTexasHoldEm
         // ── HUD Text ──────────────────────────────────────────────────────────
         [Header("HUD")]
         [SerializeField] private TMP_Text balanceText;
-        [SerializeField] private TMP_Text messageText;
         [SerializeField] private TMP_Text phaseText;
 
         // ── Bet Input ─────────────────────────────────────────────────────────
@@ -85,7 +84,6 @@ namespace UltimateTexasHoldEm
             game.OnDealerCardsDealt    += HandleDealerCards;
             game.OnCommunityCardsDealt += HandleCommunityCards;
             game.OnRoundResolved       += HandleRoundResult;
-            game.OnMessage             += ShowMessage;
 
             UpdateBalance(game.Balance);
             SetAllPanels(GamePhase.PlaceBets);
@@ -103,7 +101,6 @@ namespace UltimateTexasHoldEm
             game.OnDealerCardsDealt    -= HandleDealerCards;
             game.OnCommunityCardsDealt -= HandleCommunityCards;
             game.OnRoundResolved       -= HandleRoundResult;
-            game.OnMessage             -= ShowMessage;
         }
 
         // ═════════════════════════════════════════════════════════════════════
@@ -220,10 +217,7 @@ namespace UltimateTexasHoldEm
             }
         }
 
-        private void ShowMessage(string msg)
-        {
-            if (messageText) messageText.text = msg;
-        }
+
 
         // ═════════════════════════════════════════════════════════════════════
         //  Helpers

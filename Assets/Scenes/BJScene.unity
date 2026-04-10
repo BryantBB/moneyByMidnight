@@ -587,7 +587,7 @@ MonoBehaviour:
     to 21 without going over.\n\n(J, Q, K are all considered 10s, A can be worth
     1 or 11)\n\n1. Place your bet before the deal. If you win, you will get double
     your bet (e.g. if you bet 10, you will recieve 20).\n\n2. The dealer will deal
-    two cards to everyone at the table. \n\n3. You will be given the choise to \"hit\"
+    two cards to everyone at the table. \n\n3. You will be given the choice to \"hit\"
     or \"stand\". Click \"hit\" to be dealt another card. Click \"stand\" to keep
     your current hand. "
   m_isRightToLeft: 0

@@ -7,6 +7,7 @@ using UnityEngine.XR;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem.Interactions;
 using TMPro;
+using NUnit.Framework.Internal;
 
 public class BlackJController : MonoBehaviour
 {
@@ -91,6 +92,10 @@ public class BlackJController : MonoBehaviour
         {
             return "Player Won";
         }
+        // if (playerScore == dealerScore)
+        // {
+        //     return "Push";
+        // }
         return "Player Lost";
     }
 
@@ -112,6 +117,7 @@ public class BlackJController : MonoBehaviour
     private void ShowButtons()
     {
         hitButton.gameObject.SetActive(true);
+        hitButton.interactable = true;
         standButton.gameObject.SetActive(true);
     }
 
@@ -124,6 +130,12 @@ public class BlackJController : MonoBehaviour
     public void DealHit()
     {
         _gamedeck.DealHit();
+         int pscore = ScoreHand(_gamedeck.getPlayerHand());
+        if (pscore > 21)
+        {
+            hitButton.interactable = false;
+            DisplayResult();
+        }
     }
 
     public void ResetDeck()
@@ -131,6 +143,9 @@ public class BlackJController : MonoBehaviour
         StartBJ();
         _gamedeck.ResetForDeal();
     }
+
+    
+
 }
 
 

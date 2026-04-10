@@ -11,6 +11,8 @@ public class Deck : MonoBehaviour
     private List<Card> _dealerHand = new List<Card>();
     private List<Card> _npcHand = new List<Card>();
     private static System.Random shuffleRnd = new System.Random();
+
+    private BlackJController _bjcontroller;
     
     public List<Card> getPlayerHand() { return _playerHand; }
     public List<Card> getDealerHand() { return _dealerHand; }
@@ -34,17 +36,17 @@ public class Deck : MonoBehaviour
 
     public void ResetForDeal()
     {
-        for(int i = 0; i <= _playerHand.Count; i++)
+        for(int i = 0; i < _playerHand.Count; i++)
         {
             _playerHand[0].transform.position = new Vector3(1000,1000,-1000);
             _playerHand.RemoveAt(0);
         }
-        for(int i = 0; i <= _npcHand.Count; i++)
+        for(int i = 0; i < _npcHand.Count; i++)
         {
             _npcHand[0].transform.position = new Vector3(1000,1000,-1000);
             _npcHand.RemoveAt(0);
         }
-        for(int i = 0; i <= _dealerHand.Count; i++)
+        for(int i = 0; i < _dealerHand.Count; i++)
         {
             _dealerHand[0].transform.position = new Vector3(1000,1000,-1000);
             _dealerHand.RemoveAt(0);
@@ -72,12 +74,13 @@ public class Deck : MonoBehaviour
     public void DealHit()
     {
         hitCount += 1;
+        float zoffset = -0.1f * hitCount;
         DealPlayerCard();
         if (hitCount == 1){
-            _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6,0);
+            _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6, zoffset);
         } else
         {    
-        _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6,0);
+        _playerHand[hitCount+1].transform.position = new Vector3(hitCount+4,-6,zoffset);
         }
         _playerHand[hitCount+1].FlipCard();
     }
@@ -102,9 +105,10 @@ public class Deck : MonoBehaviour
 
     public void DealDealerHit(int dealerHit)
     {
+        float zoffset = -0.1f * dealerHit;
        _dealerHand.Add(_deck[0]);
        _deck.RemoveAt(0);
-       _dealerHand[1+dealerHit].transform.position = new Vector3 (dealerHit-4,6,0);
+       _dealerHand[1+dealerHit].transform.position = new Vector3 (dealerHit-4,6,zoffset);
        _dealerHand[1+dealerHit].FlipCard();
     }
 
