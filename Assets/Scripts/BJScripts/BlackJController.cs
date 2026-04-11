@@ -32,8 +32,10 @@ public class BlackJController : MonoBehaviour
     public void StartDeal()
     {
         bet = ParseInput(betInput, 10); // adapted from josh's code
+        GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
+        BetManager.Instance.updateMoneyToBet(-bet);
         _gamedeck.ResetDeck();
         Invoke("DealAllHands",1);
     }
@@ -82,20 +84,22 @@ public class BlackJController : MonoBehaviour
         }
         if(dealerScore > 21)
         {
+            BetManager.Instance.updateMoneyToBet(bet + bet);
+            GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             return "Player Won";
         }
         if(playerScore == 21)
         {
+            BetManager.Instance.updateMoneyToBet(bet + bet + (bet/2));
+            GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             return "Player Won";
         }
         if(playerScore > dealerScore)
         {
+            BetManager.Instance.updateMoneyToBet(bet + bet);
+            GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             return "Player Won";
         }
-        // if (playerScore == dealerScore)
-        // {
-        //     return "Push";
-        // }
         return "Player Lost";
     }
 

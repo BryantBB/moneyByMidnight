@@ -6,7 +6,7 @@ public class ResultText : MonoBehaviour
 {
     public GameObject playerWon;
     public GameObject playerLost;
-    public GameObject push;
+
 
     public void ShowText(string result, float duration)
     {
@@ -18,10 +18,6 @@ public class ResultText : MonoBehaviour
         {
             StartCoroutine(DisplayforTime(playerLost, duration));
         }
-        // if (result == "Push")
-        // {
-        //     StartCoroutine(DisplayforTime(push, duration));
-        // }
     }
 
     public IEnumerator DisplayforTime(GameObject textbox, float duration)
