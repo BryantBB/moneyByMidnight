@@ -32,7 +32,8 @@ public class Slot : MonoBehaviour
     void Initialize()
     {
         for (int i = 0; i < tokens.Length; i++) 
-            tokens[i] = CreateToken(Random.Range(0, 8));
+            // tokens[i] = CreateToken(Random.Range(0, 8));
+            tokens[i] = CreateToken(GetRandToken());
         UpdateRandCol(3, 0.1f);
         SpeedChange();
     }
@@ -48,7 +49,7 @@ public class Slot : MonoBehaviour
     {
         if (Random.value < chance)
         {
-            int randomInt = Random.Range(0, 6); // Cannot generate "Lion" or "Tiger" tokens.
+            int randomInt = GetRandToken();
             Token randomToken = CreateToken(randomInt);
             int startIndex = Random.Range(0, tokens.Length);
 
@@ -76,6 +77,7 @@ public class Slot : MonoBehaviour
             yield return new WaitForSeconds(speed);
             SpeedChange();
             if (isSpinning) Shift();
+            // spinDirection *= Random.value >= 0.8f ? 1 : -1;
         }
     }
 
@@ -136,6 +138,24 @@ public class Slot : MonoBehaviour
         tokenDisplays[0].flash = false;
         tokenDisplays[1].flash = false;
         tokenDisplays[2].flash = false;
+    }
+
+    int GetRandToken()
+    {
+        int[] weights = {20, 20, 20, 20, 20, 10, 5, 2};
+
+        int totalWeight = 0;
+        foreach (int w in weights) totalWeight += w;
+
+        int randomValue = Random.Range(0, totalWeight);
+        int currentSum = 0;
+
+        for (int i = 0; i < weights.Length; i++)
+        {
+            currentSum += weights[i];
+            if (randomValue < currentSum) return i;
+        }
+        return 0;
     }
 
 }

@@ -25,7 +25,9 @@ public class SlotButton : MonoBehaviour
     void Update()
     {        
         if (disabled) return;
-        if (Keyboard.current.enterKey.wasPressedThisFrame) Activate();
+        if (Keyboard.current.enterKey.wasPressedThisFrame
+        || Keyboard.current.cKey.wasPressedThisFrame
+        || Keyboard.current.jKey.wasPressedThisFrame) Activate();
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Vector2 mouseScrPos = Mouse.current.position.ReadValue();

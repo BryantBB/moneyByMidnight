@@ -11,13 +11,14 @@ public class SlotManager : MonoBehaviour
 
     public Slot[] slots;
     private Token[] slotResults = new Token[9];
-    private List<int> payouts = new List<int>();
+    private List<int> multipliers = new List<int>();
 
     private int nextSlot = 0;
-    private int lives = 9;
+    private int lives = 3;
     private int totalPayout = 0;
+    private int totalBet = 0;
 
-    public int[] payoutAmounts = new int[8];
+    public int[] payoutMultipliers = new int[8];
     public string[] tokenNames = new string[8];
     public Sprite[] sprites = new Sprite[9];
     public TokenDisplay[] cheatTokenDisplays = new TokenDisplay[3];
@@ -26,24 +27,61 @@ public class SlotManager : MonoBehaviour
 
     private bool cheatMode = false;    
     private bool canPlay = false;
+    private bool canBet = true;
 
     public TMP_Text livesText;
     public TMP_Text payoutText;
+    public TMP_Text betText;
     public SlotButton slotButton;
 
     void Start()
     {
         UpdateText(livesText, lives);
         UpdateText(payoutText, 0);
+        UpdateText(betText, 0);
     }
 
     void Update()
     {
         if (Keyboard.current.f1Key.wasPressedThisFrame) Restart();
+        if (canBet) {
+            if (Keyboard.current.zKey.wasPressedThisFrame 
+            || Keyboard.current.kKey.wasPressedThisFrame) decreaseBet();
+            if (Keyboard.current.xKey.wasPressedThisFrame 
+            || Keyboard.current.lKey.wasPressedThisFrame) increaseBet();
+        }
     }
-    
+
+    void decreaseBet()
+    {
+        if (totalBet >= 10)
+        {
+            totalBet -= 10;
+            if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(+10);
+            UpdateText(betText, totalBet);
+        }       
+    }
+
+    void increaseBet()
+    {
+        if (BetManager.Instance != null && BetManager.Instance._moneytobet >= 10)
+        {
+            if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(-10);
+            totalBet += 10;
+            UpdateText(betText, totalBet);
+        }    
+    }
+
     public void StopSlot()
     {
+        if (!canPlay && totalBet < 10)
+        {
+            Debug.Log("BET MORE THAN 10!");
+            return;
+        }
+
+        canBet = false;
+        
         if (lives > 0) {
             if (!canPlay)
             {
@@ -127,8 +165,10 @@ public class SlotManager : MonoBehaviour
         nextSlot = 0;
         // shiftChance += 0.1f;
         foreach (Slot s in slots) s.Reset();
-        payouts.Clear();
+        multipliers.Clear();
         // UpdateText(payoutText, 0.ToString());
+        // totalBet = 0;
+        // UpdateText(betText, totalBet);
     } 
     
     void RoundEnd()
@@ -136,21 +176,32 @@ public class SlotManager : MonoBehaviour
         FillResults();
         CalcWins();
         WinDisplays();
+
         int payout = GetPayout();
         UpdateTotalPayout(payout);
+
         if (payout <= 0)
         {
             lives -= 1;  
             UpdateText(livesText, lives);
         }
-        if (lives <= 0) slotButton.Disable();    
+
+        if (lives <= 0)
+        {
+            slotButton.Disable();
+            if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(totalPayout);
+        }
         canPlay = false;
+        // canBet = true;
     }
 
     int GetPayout()
     {
         int payout = 0;
-        foreach (int i in payouts) payout += i;
+        foreach (int i in multipliers)
+        {
+            payout += totalBet * i;
+        }
         return payout;
     }
 
@@ -158,6 +209,7 @@ public class SlotManager : MonoBehaviour
     {
         totalPayout += payout;
         UpdateText(payoutText, totalPayout);
+        // if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(payout);
     }  
 
     void FillResults()
@@ -174,29 +226,29 @@ public class SlotManager : MonoBehaviour
 
     void CalcWins()
     {
-        if (payouts.Count != 0) payouts.Clear();
+        if (multipliers.Count != 0) multipliers.Clear();
 
         for (int i = 0; i < 3; i++)
         {
             int horzWin = CalcHorzWin(i);
-            if (horzWin != -1) payouts.Add(payoutAmounts[horzWin]);
+            if (horzWin != -1) multipliers.Add(payoutMultipliers[horzWin]);
             if (i != 1)
             {
                 int diagWin = CalcDiagWin(i);
                 if (diagWin != -1)
-                    payouts.Add(payoutAmounts[diagWin]);
+                    multipliers.Add(payoutMultipliers[diagWin]);
             }
         }
 
         for (int i = 0; i < 7; i += 3)
         {
             int vertWin = CalcVertWin(i);
-            if (vertWin != -1) payouts.Add(payoutAmounts[vertWin]);
+            if (vertWin != -1) multipliers.Add(payoutMultipliers[vertWin]);
 
         }
 
         int rombusWin = CalcRombusWin();
-        if (rombusWin != -1) payouts.Add(payoutAmounts[rombusWin]);
+        if (rombusWin != -1) multipliers.Add(payoutMultipliers[rombusWin]);
     }
 
     int CalcHorzWin(int i)
@@ -254,11 +306,14 @@ public class SlotManager : MonoBehaviour
 
     void Restart()
     {
-        lives = 9;
+        lives = 3;
         UpdateText(livesText, lives);
         totalPayout = 0;
         UpdateText(payoutText, totalPayout);
+        totalBet = 0;
+        UpdateText(betText, totalBet);
         slotButton.Enable();
+        canBet = true;
     }
 
 }
