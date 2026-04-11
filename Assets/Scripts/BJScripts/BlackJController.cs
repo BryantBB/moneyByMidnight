@@ -134,7 +134,7 @@ public class BlackJController : MonoBehaviour
     public void DealHit()
     {
         _gamedeck.DealHit();
-         int pscore = ScoreHand(_gamedeck.getPlayerHand());
+        int pscore = ScoreHand(_gamedeck.getPlayerHand());
         if (pscore > 21)
         {
             hitButton.interactable = false;
