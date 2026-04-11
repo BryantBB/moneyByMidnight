@@ -36,6 +36,7 @@ public class BlackJController : MonoBehaviour
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
         BetManager.Instance.updateMoneyToBet(-bet);
+        GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         _gamedeck.ResetDeck();
         Invoke("DealAllHands",1);
     }
