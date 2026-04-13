@@ -310,10 +310,10 @@ MonoBehaviour:
     m_Value: 2.5
   brightness:
     m_OverrideState: 1
-    m_Value: 1.05
+    m_Value: 1.15
   blackLevel:
     m_OverrideState: 1
-    m_Value: 1.0526
+    m_Value: 1.025
   artifactStrength:
     m_OverrideState: 1
     m_Value: 1
@@ -322,13 +322,13 @@ MonoBehaviour:
     m_Value: 0.75
   chromaModFrequencyScale:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.25
   chromaPhaseShiftScale:
     m_OverrideState: 1
     m_Value: 1
   blurWidth:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   curvature:
     m_OverrideState: 1
     m_Value: 1
