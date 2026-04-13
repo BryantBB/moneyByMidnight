@@ -24,8 +24,9 @@ MonoBehaviour:
     probeSamplingDebugMesh: {fileID: 0}
     probeSamplingDebugTexture: {fileID: 0}
     probeVolumeBlendStatesCS: {fileID: 0}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: 9188327757353651803}
+  m_RendererFeatureMap: 5b0eedd8697f837f
   m_UseNativeRenderPass: 0
   m_LayerMask:
     serializedVersion: 2
@@ -56,3 +57,35 @@ MonoBehaviour:
   m_PostProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_DefaultMaterialType: 0
   m_DefaultCustomMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+--- !u!114 &9188327757353651803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3f52ff0c1d0487cb8c243cf3b046f1, type: 3}
+  m_Name: NTSCFeature
+  m_EditorClassIdentifier: Assembly-CSharp::CRTPostprocess.NTSCFeature
+  m_Active: 1
+  bufferHeight: 180
+  outputHeight: 180
+  crossTalkMode: 1
+  crossTalkStrength: 2
+  brightness: 0.95
+  blackLevel: 1.0526
+  artifactStrength: 1
+  fringeStrength: 0.75
+  chromaModFrequencyScale: 1
+  chromaPhaseShiftScale: 1
+  blurWidth: 1
+  curvature: 1
+  cornerMask: 1
+  cornerRadius: 16
+  scanlineStrength: 1
+  beamSpread: 0.5
+  beamStrength: 1
+  overscanScale: 0.985
+  displayOrientation: 0

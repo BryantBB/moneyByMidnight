@@ -295,22 +295,22 @@ MonoBehaviour:
   active: 1
   enable:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   bufferHeight:
     m_OverrideState: 1
-    m_Value: 480
+    m_Value: 360
   outputHeight:
     m_OverrideState: 1
-    m_Value: 240
+    m_Value: 180
   crossTalkMode:
     m_OverrideState: 1
     m_Value: 1
   crossTalkStrength:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 2.5
   brightness:
     m_OverrideState: 1
-    m_Value: 0.95
+    m_Value: 1.05
   blackLevel:
     m_OverrideState: 1
     m_Value: 1.0526
