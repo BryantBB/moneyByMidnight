@@ -52,6 +52,7 @@ namespace UltimateTexasHoldEm
         {
             Balance = startingBalance;
             Phase   = GamePhase.PlaceBets;
+            
         }
 
         // ═════════════════════════════════════════════════════════════════════
@@ -174,7 +175,6 @@ namespace UltimateTexasHoldEm
 
             PokerSoundManager.PlaySound(PokerSound.DEAL);
 
-
             PlayerHand = _deck.DealMultiple(2);
             DealerHand = _deck.DealMultiple(2);
 
@@ -185,6 +185,8 @@ namespace UltimateTexasHoldEm
 
         private void DealFlop()
         {
+            PokerSoundManager.PlaySound(PokerSound.DEAL);
+
             CommunityCards.AddRange(_deck.DealMultiple(3));
             OnCommunityCardsDealt?.Invoke(new List<Card>(CommunityCards));
             SetPhase(GamePhase.Flop);
@@ -192,6 +194,8 @@ namespace UltimateTexasHoldEm
 
         private void DealTurnRiver()
         {
+            PokerSoundManager.PlaySound(PokerSound.DEAL);
+            
             CommunityCards.AddRange(_deck.DealMultiple(2));
             OnCommunityCardsDealt?.Invoke(new List<Card>(CommunityCards));
             SetPhase(GamePhase.TurnRiver);

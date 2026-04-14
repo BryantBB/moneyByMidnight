@@ -90,6 +90,7 @@ namespace UltimateTexasHoldEm
             ClearResult();
 
             if (screenFlash) screenFlash.color = Color.clear;
+            PokerSoundManager.PlaySound(PokerSound.SHUFFLE);
         }
 
         private void OnDestroy()
@@ -125,8 +126,12 @@ namespace UltimateTexasHoldEm
         public void Btn_Raise1x()      => game.RaiseTurnRiver();
         public void Btn_Fold()         => game.Fold();
 
-        public void Btn_NewRound()     => game.StartNewRound();
-
+        public void Btn_NewRound()
+        {
+            game.StartNewRound();
+            ClearAllCards();
+            PokerSoundManager.PlaySound(PokerSound.SHUFFLE);
+        }
         public void Open_HelpPanel() => helpPanel.SetActive(true);
         public void Close_HelpPanel() => helpPanel.SetActive(false);
 
@@ -201,6 +206,12 @@ namespace UltimateTexasHoldEm
                     $"Play: {WL(result.PlayWinLoss)}" +
                     $"\nNet: {WL(result.TotalWinLoss)}";
             }
+
+            if (PayoutCalculator.Outcome.PlayerWin == result.Outcome)
+                PokerSoundManager.PlaySound(PokerSound.WIN);
+            else if (PayoutCalculator.Outcome.DealerWin == result.Outcome)
+                PokerSoundManager.PlaySound(PokerSound.LOSE);
+
 
             if (playerHandText) playerHandText.text = $"You: {result.PlayerHandName}";
             if (dealerHandText) dealerHandText.text = $"Dealer: {result.DealerHandName}";
