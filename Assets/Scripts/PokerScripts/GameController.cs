@@ -172,6 +172,9 @@ namespace UltimateTexasHoldEm
             _deck.Reset();
             _deck.Shuffle();
 
+            PokerSoundManager.PlaySound(PokerSound.DEAL);
+
+
             PlayerHand = _deck.DealMultiple(2);
             DealerHand = _deck.DealMultiple(2);
 
