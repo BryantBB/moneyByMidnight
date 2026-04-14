@@ -32,6 +32,7 @@ public class Deck : MonoBehaviour
             _deck.Add(card);
         }
         Shuffle(_deck); //now deck is shuffled
+
     }
 
     public void ResetForDeal()
@@ -69,6 +70,8 @@ public class Deck : MonoBehaviour
             list[i-1] = list[pos];
             list[pos] = x;
         }
+
+
     }
 
     public void DealHit()

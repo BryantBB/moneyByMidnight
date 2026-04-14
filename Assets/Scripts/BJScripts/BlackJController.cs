@@ -27,6 +27,7 @@ public class BlackJController : MonoBehaviour
     public void StartBJ()
     {
         betPanel.SetActive(true);
+        BlackjackSoundManager.PlaySound(BlackjackSound.SHUFFLE);
     }
 
     public void StartDeal()
@@ -35,6 +36,7 @@ public class BlackJController : MonoBehaviour
         GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
+        BlackjackSoundManager.PlaySound(BlackjackSound.BET);
         BetManager.Instance.updateMoneyToBet(-bet);
         GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         _gamedeck.ResetDeck();
@@ -75,11 +77,13 @@ public class BlackJController : MonoBehaviour
         int dealerHit = 0;
         if(playerScore > 21)
         {
+            BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
             return "Player Lost";
         }
         while (dealerScore < 17)
         {
             dealerHit += 1;
+            BlackjackSoundManager.PlaySound(BlackjackSound.DEAL);
             _gamedeck.DealDealerHit(dealerHit);
             dealerScore = ScoreHand(_gamedeck.getDealerHand());
         }
@@ -87,20 +91,24 @@ public class BlackJController : MonoBehaviour
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
+            BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
         }
         if(playerScore == 21)
         {
             BetManager.Instance.updateMoneyToBet(bet + bet + (bet/2));
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
+            BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
         }
         if(playerScore > dealerScore)
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
+            BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
         }
+        BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
         return "Player Lost";
     }
 
@@ -116,6 +124,7 @@ public class BlackJController : MonoBehaviour
     public void DealAllHands()
     {
         _gamedeck.DealAllHands();
+        BlackjackSoundManager.PlaySound(BlackjackSound.DEAL);
         Invoke("ShowButtons",1);
     }
     
@@ -135,6 +144,7 @@ public class BlackJController : MonoBehaviour
     public void DealHit()
     {
         _gamedeck.DealHit();
+        BlackjackSoundManager.PlaySound(BlackjackSound.DEAL);
         int pscore = ScoreHand(_gamedeck.getPlayerHand());
         if (pscore > 21)
         {

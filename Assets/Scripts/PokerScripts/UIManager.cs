@@ -66,6 +66,8 @@ namespace UltimateTexasHoldEm
 
         [SerializeField] private GameObject closeHelpButton;
 
+        private int shufflecount = 0;
+
         // ── Private ───────────────────────────────────────────────────────────
         private readonly List<CardView> _playerCards    = new();
         private readonly List<CardView> _dealerCards    = new();
@@ -85,12 +87,14 @@ namespace UltimateTexasHoldEm
             game.OnCommunityCardsDealt += HandleCommunityCards;
             game.OnRoundResolved       += HandleRoundResult;
 
+
             UpdateBalance(game.Balance);
             SetAllPanels(GamePhase.PlaceBets);
             ClearResult();
 
+
             if (screenFlash) screenFlash.color = Color.clear;
-            PokerSoundManager.PlaySound(PokerSound.SHUFFLE);
+            
         }
 
         private void OnDestroy()
@@ -133,8 +137,12 @@ namespace UltimateTexasHoldEm
             PokerSoundManager.PlaySound(PokerSound.SHUFFLE);
         }
         public void Open_HelpPanel() => helpPanel.SetActive(true);
-        public void Close_HelpPanel() => helpPanel.SetActive(false);
-
+        public void Close_HelpPanel()
+        { 
+            helpPanel.SetActive(false);
+            if (shufflecount == 0) PokerSoundManager.PlaySound(PokerSound.SHUFFLE);
+            shufflecount++;
+        }
 
 
         // ═════════════════════════════════════════════════════════════════════

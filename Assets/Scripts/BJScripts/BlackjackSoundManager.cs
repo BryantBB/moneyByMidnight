@@ -2,7 +2,7 @@ using Mono.Cecil.Cil;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum PokerSound
+public enum BlackjackSound
 {
     SHUFFLE, 
     DEAL, 
@@ -13,9 +13,10 @@ public enum PokerSound
 }
 
 [RequireComponent(typeof(AudioSource))]
-public class PokerSoundManager : MonoBehaviour
+public class BlackjackSoundManager : MonoBehaviour
 {
-    private static PokerSoundManager instance;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private static BlackjackSoundManager instance;
     private AudioSource audioSource;
 
     [SerializeField] private AudioClip[] soundList;
@@ -30,7 +31,7 @@ public class PokerSoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public static void PlaySound(PokerSound sound, float volume = 1)
+    public static void PlaySound(BlackjackSound sound, float volume = 1)
     {
         instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
     }

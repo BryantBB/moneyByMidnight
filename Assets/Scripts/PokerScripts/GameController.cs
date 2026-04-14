@@ -52,7 +52,6 @@ namespace UltimateTexasHoldEm
         {
             Balance = startingBalance;
             Phase   = GamePhase.PlaceBets;
-            
         }
 
         // ═════════════════════════════════════════════════════════════════════
