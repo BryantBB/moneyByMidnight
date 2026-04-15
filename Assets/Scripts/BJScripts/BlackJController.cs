@@ -22,7 +22,7 @@ public class BlackJController : MonoBehaviour
     public Button placeBet;
     public TMP_InputField betInput;
     private int bet;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBJ()
     {

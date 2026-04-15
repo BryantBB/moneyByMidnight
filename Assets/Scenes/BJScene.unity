@@ -768,15 +768,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0008271299
-    y: 0.0015948963
-    width: 0.9975186
-    height: 0.9952153
+    x: 0
+    y: 0.0055555557
+    width: 6
+    height: 2.2444446
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 13
+  orthographic size: 11.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061a6987ea95f94ab9952101ff6caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTeleport
+  titleScreen: 0
 --- !u!114 &629577299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,7 +1263,6 @@ GameObject:
   - component: {fileID: 730706207}
   - component: {fileID: 730706206}
   - component: {fileID: 730706208}
-  - component: {fileID: 730706209}
   - component: {fileID: 730706211}
   - component: {fileID: 730706210}
   m_Layer: 0
@@ -1324,19 +1324,6 @@ MonoBehaviour:
   _helpPanel: {fileID: 1243271910}
   _closeButton: {fileID: 1119515840}
   _openButton: {fileID: 1821251701}
---- !u!114 &730706209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730706205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa387e99de256b4f8d6b4c9ed3a3c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BetManager
-  _moneytobet: 0
 --- !u!114 &730706210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2507,7 +2494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304360393}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3263,7 +3250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Enter bet amount...\u200B"
+  m_text: "\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
