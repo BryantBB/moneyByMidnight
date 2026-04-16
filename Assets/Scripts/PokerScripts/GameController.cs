@@ -14,7 +14,7 @@ namespace UltimateTexasHoldEm
     {
         // ── Inspector ─────────────────────────────────────────────────────────
         [Header("Session")]
-        [SerializeField] private float startingBalance = 1000f;
+
         [SerializeField] private float minAnte         = 5f;
         [SerializeField] private float maxAnte         = 500f;
 
@@ -50,7 +50,7 @@ namespace UltimateTexasHoldEm
         // ═════════════════════════════════════════════════════════════════════
         private void Awake()
         {
-            Balance = startingBalance;
+            Balance = BetManager.Instance._moneytobet;
             Phase   = GamePhase.PlaceBets;
         }
 
@@ -78,6 +78,7 @@ namespace UltimateTexasHoldEm
             CheckedPreFlop = false;
 
             Balance -= cost;
+            BetManager.Instance.updateMoneyToBet(-(int)cost);
             OnBalanceChanged?.Invoke(Balance);
 
             DealInitialCards();
@@ -249,6 +250,7 @@ namespace UltimateTexasHoldEm
                 netReturn += SettleBet(PlayBet,  result.PlayWinLoss);
 
                 Balance += netReturn;
+                BetManager.Instance.updateMoneyToBet((int)netReturn);
             }
 
             LastResult = result;
@@ -272,6 +274,7 @@ namespace UltimateTexasHoldEm
         {
             if (amount > Balance) { Msg("Insufficient balance."); return false; }
             Balance -= amount;
+            BetManager.Instance.updateMoneyToBet(-(int)amount);
             OnBalanceChanged?.Invoke(Balance);
             return true;
         }
