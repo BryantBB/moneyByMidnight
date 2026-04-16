@@ -14,6 +14,8 @@ public class Wheel : MonoBehaviour
 
     void Start()
     {
+        RouletteSoundManager.LoopSound(RouletteSound.SPIN);
+
         Speed = maxSpeed;
         if (pointer != null)
         {
@@ -44,9 +46,12 @@ public class Wheel : MonoBehaviour
     
     public void StopWheel()
     {   
+        RouletteSoundManager.StopLoop();
+        RouletteSoundManager.PlaySound(RouletteSound.SLOW);
+
         if (bettingScript.totalBet > 0)
         {
-            Speed -= 300 * Time.deltaTime;
+            Speed -= 100 * Time.deltaTime;
             if (Speed <= 0)
             {
                 Speed = 0;

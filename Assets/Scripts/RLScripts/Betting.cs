@@ -92,6 +92,8 @@ public class Betting : MonoBehaviour
                 // If they can't afford the current bet, drop it to the available amount or 100 (minimum), or 0 if they are totally broke.
                 currentBet = available; 
             }
+
+            RouletteSoundManager.PlaySound(RouletteSound.BET);
         }
 
         if (currentBet == 0)
@@ -163,9 +165,15 @@ public class Betting : MonoBehaviour
         BetManager.Instance.updateMoneyToBet(roundWinnings); // Add what was won
 
         if (roundWinnings > 0)
+        {
             Debug.Log($"<color=green>WIN!</color> Landed on {winnerName}. Total Payout: {roundWinnings}");
+            RouletteSoundManager.PlaySound(RouletteSound.WIN);
+        }
         else
+        {
             Debug.Log($"<color=red>LOSS.</color> Landed on {winnerName}. Total Lost: {totalBet}");
+            RouletteSoundManager.PlaySound(RouletteSound.LOSE);
+        }
         
         ClearAllBets();
     }
