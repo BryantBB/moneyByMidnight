@@ -12,7 +12,6 @@ public class Betting : MonoBehaviour
     public Transform chipContainer; // Optional: A blank UI Panel to hold all chips
     public GameObject[] buttonObjects;
 
-    public int Money = 500;
     public int availableMoney;
     public int totalBet = 0; // Total of bets: normal + special
     public int currentBet = 100; // Current bet
@@ -40,7 +39,7 @@ public class Betting : MonoBehaviour
         ButtonsPressed();
         totalBetText.text = $"Total Placed Bets: <color=white>{totalBet}</color>";
         currentBetText.text = $"Current Bet: <color=white>{currentBet}</color>";
-        moneyText.text = $"Money: <color=white>{Money}</color>";
+        moneyText.text = $"Money: <color=white>{BetManager.Instance._moneytobet}</color>";
 
         betButton.interactable = totalBet > 0;
     }
@@ -48,7 +47,7 @@ public class Betting : MonoBehaviour
     // Checks if any of the keyboard buttons related to betting have been pressed and updates the bet
     public void ButtonsPressed()
     {
-        int availableMoney = Money - totalBet;
+        int availableMoney = BetManager.Instance._moneytobet - totalBet;
         if (Keyboard.current.digit1Key.wasPressedThisFrame && availableMoney >= currentBet + 100)
         {
             currentBet += 100;
@@ -75,7 +74,7 @@ public class Betting : MonoBehaviour
     public void PlaceBet(int boardIndex)
     {
         // Check if the player has enough money first!
-        if (currentBet > 0 && totalBet + currentBet <= Money)
+        if (currentBet > 0 && totalBet + currentBet <= BetManager.Instance._moneytobet)
         {
             Bets[boardIndex] += currentBet;
             totalBet += currentBet;
@@ -87,7 +86,7 @@ public class Betting : MonoBehaviour
 
             // --- SAFETY CHECK ---
             // If we just bet so much that we can't afford our current chip anymore, lower the currentBet automatically.
-            int available = Money - totalBet;
+            int available = BetManager.Instance._moneytobet - totalBet;
             if (available < currentBet)
             {
                 // If they can't afford the current bet, drop it to the available amount or 100 (minimum), or 0 if they are totally broke.
@@ -105,7 +104,7 @@ public class Betting : MonoBehaviour
     public void ClearAllBets()
     {
         Array.Clear(Bets, 0, Bets.Length);
-        availableMoney = Money;
+        availableMoney = BetManager.Instance._moneytobet;
         totalBet = 0;
         currentBet = 100;
 
@@ -160,8 +159,8 @@ public class Betting : MonoBehaviour
         }
 
         // FINAL RESOLUTION
-        Money -= totalBet;    // Subtract what was risked
-        Money += roundWinnings; // Add what was won
+        BetManager.Instance.updateMoneyToBet(-totalBet); // Subtract what was risked
+        BetManager.Instance.updateMoneyToBet(roundWinnings); // Add what was won
 
         if (roundWinnings > 0)
             Debug.Log($"<color=green>WIN!</color> Landed on {winnerName}. Total Payout: {roundWinnings}");
