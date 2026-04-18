@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9e948b519b143298eab0cdd9b06378, type: 3}
   m_Name: NewDialogueTree
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
-  sentences: []
+  sentences:
+  - characterName: Elisa
+    text: "\t"
+    showCharacterSprite: 1
+  - characterName: Elisa
+    text: 'This is the dialogue test :3 '
+    showCharacterSprite: 0
+  - characterName: Elisa
+    text: 'Hope this works hehe '
+    showCharacterSprite: 0
