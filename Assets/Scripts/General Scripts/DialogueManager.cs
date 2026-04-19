@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
         // Use the helper function you wrote! 
         // This is cleaner and handles both Left and Right offsets.
-        float paddingValue = s.showCharacterSprite ? 75f : 0f;
+        float paddingValue = s.showCharacterSprite ? 25f : 0f;
         ApplyPadding(paddingValue);
 
         StopAllCoroutines();
