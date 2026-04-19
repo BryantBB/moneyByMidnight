@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
   sentences:
   - characterName: Elisa
-    text: "\t"
+    text: "Hello!\t"
     showCharacterSprite: 1
   - characterName: Elisa
     text: 'This is the dialogue test :3 '
