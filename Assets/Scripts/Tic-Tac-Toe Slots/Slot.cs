@@ -12,7 +12,6 @@ public class Slot : MonoBehaviour
     private int nextIndex;
     private int spinDirection;
     public int column;
-
     public float speed;
 
     private Token[] tokens = new Token[16];
