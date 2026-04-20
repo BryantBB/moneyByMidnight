@@ -5,6 +5,7 @@ public class Wheel : MonoBehaviour
     public Betting bettingScript;
 
     private float Speed;
+    private float decelRate;
     public float maxSpeed = 600;
     public bool isSpin = true;
 
@@ -14,7 +15,7 @@ public class Wheel : MonoBehaviour
 
     void Start()
     {
-        RouletteSoundManager.LoopSound(RouletteSound.SPIN);
+        RouletteSoundManager.LoopSound(RouletteSound.SPIN, 0.5f);
 
         Speed = maxSpeed;
         if (pointer != null)
@@ -41,17 +42,22 @@ public class Wheel : MonoBehaviour
     }
     public void TriggerStop()
     {
-        isSpin = false;
+        if (bettingScript.totalBet > 0) {
+            isSpin = false;
+            decelRate = Speed / 6.5f;
+            RouletteSoundManager.StopLoop();
+        }
+        RouletteSoundManager.PlaySound(RouletteSound.SLOW);
+
     }
     
     public void StopWheel()
     {   
-        RouletteSoundManager.StopLoop();
-        RouletteSoundManager.PlaySound(RouletteSound.SLOW);
+        
 
         if (bettingScript.totalBet > 0)
         {
-            Speed -= 100 * Time.deltaTime;
+            Speed -= decelRate * Time.deltaTime;
             if (Speed <= 0)
             {
                 Speed = 0;
@@ -88,5 +94,7 @@ public class Wheel : MonoBehaviour
         {
         pointer.GetComponent<BoxCollider2D>().enabled = false;
         }
+
+        RouletteSoundManager.LoopSound(RouletteSound.SPIN, 0.5f);
     }
 }

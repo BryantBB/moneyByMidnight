@@ -69,6 +69,7 @@ public class SlotManager : MonoBehaviour
             if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(-10);
             totalBet += 10;
             UpdateText(betText, totalBet);
+            SlotsSoundManager.PlaySound(SlotsSound.BET);
         }    
     }
 
@@ -166,6 +167,7 @@ public class SlotManager : MonoBehaviour
         // shiftChance += 0.1f;
         foreach (Slot s in slots) s.Reset();
         multipliers.Clear();
+        SlotsSoundManager.LoopSound(SlotsSound.SPIN);
         // UpdateText(payoutText, 0.ToString());
         // totalBet = 0;
         // UpdateText(betText, totalBet);
@@ -173,6 +175,7 @@ public class SlotManager : MonoBehaviour
     
     void RoundEnd()
     {
+        SlotsSoundManager.StopLoop();
         FillResults();
         CalcWins();
         WinDisplays();
@@ -208,6 +211,11 @@ public class SlotManager : MonoBehaviour
     void UpdateTotalPayout(int payout)
     {
         totalPayout += payout;
+        if (payout > 0) {
+            SlotsSoundManager.PlaySound(SlotsSound.WIN);
+        } else {
+            SlotsSoundManager.PlaySound(SlotsSound.LOSE);
+        }
         UpdateText(payoutText, totalPayout);
         // if (BetManager.Instance != null) BetManager.Instance.updateMoneyToBet(payout);
     }  
