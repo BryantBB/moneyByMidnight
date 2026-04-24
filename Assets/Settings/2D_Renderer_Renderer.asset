@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3f52ff0c1d0487cb8c243cf3b046f1, type: 3}
   m_Name: NTSCFeature
   m_EditorClassIdentifier: Assembly-CSharp::CRTPostprocess.NTSCFeature
-  m_Active: 1
+  m_Active: 0
   bufferHeight: 180
   outputHeight: 180
   crossTalkMode: 1
