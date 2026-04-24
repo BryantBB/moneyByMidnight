@@ -54,7 +54,7 @@ MonoBehaviour:
   m_CameraSortingLayerDownsamplingMethod: 0
   m_MaxLightRenderTextureCount: 16
   m_MaxShadowRenderTextureCount: 1
-  m_PostProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  m_PostProcessData: {fileID: 0}
   m_DefaultMaterialType: 0
   m_DefaultCustomMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!114 &9188327757353651803
@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3f52ff0c1d0487cb8c243cf3b046f1, type: 3}
   m_Name: NTSCFeature
   m_EditorClassIdentifier: Assembly-CSharp::CRTPostprocess.NTSCFeature
-  m_Active: 0
-  bufferHeight: 180
-  outputHeight: 180
+  m_Active: 1
+  bufferHeight: 480
+  outputHeight: 240
   crossTalkMode: 1
   crossTalkStrength: 2
   brightness: 0.95
@@ -80,11 +80,11 @@ MonoBehaviour:
   fringeStrength: 0.75
   chromaModFrequencyScale: 1
   chromaPhaseShiftScale: 1
-  blurWidth: 1
+  blurWidth: 2
   curvature: 1
   cornerMask: 1
   cornerRadius: 16
-  scanlineStrength: 1
+  scanlineStrength: 2
   beamSpread: 0.5
   beamStrength: 1
   overscanScale: 0.985
