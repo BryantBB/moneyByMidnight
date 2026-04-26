@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _suit: 4
   _number: 2
-  frontSprite: {fileID: 4682690065245874259, guid: 661156f394d6046c185490657f9bdfed, type: 3}
-  backSprite: {fileID: -2284765743257402415, guid: 661156f394d6046c185490657f9bdfed, type: 3}
+  frontSprite: {fileID: -1079338362, guid: 9d86b3957be620443b6aed9a23ac4b33, type: 3}
+  backSprite: {fileID: -2134218915, guid: 95a13cbe89d72eb4f88b7ddb27f4ae4c, type: 3}
