@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9e948b519b143298eab0cdd9b06378, type: 3}
+  m_Name: OpeningScene
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
+  sentences:
+  - characterName: Marley
+    text: Mommy, you need to pay for school. I can't miss my first day!
+    showCharacterSprite: 0
+  - characterName: Marigold
+    text: And I need my measles vaccines soon!
+    showCharacterSprite: 0
+  - characterName: Mario and Maria
+    text: (in unison) And we're all very-very hungry!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Marley, my son, another one please.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: I'll get the money tomorrow.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Don't spend more than ten.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Margot, Margot, Margot!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Man, why are you hollering at me? I'm in the middle of my Smirnoff pentathlon!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: I'm sorry, Ma'am. I'm down a quarter Guineas!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Oh...Three quarters actually.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Nice, nice.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: I'll join you!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Seems like I joined you.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: How ab-b-bout you join me?
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: One casino, two beers, three hundred to bet?
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: I need way more than two beers, Bub.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Oh, yes...Me too.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: I was hoping you'd say that. How about the Megalodon Casino? They give
+      you money to spend.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Sure! At 5?
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Sure.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: See you there!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Children, my children!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Marley, you'll have papers and pencils!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Marie, you'll be super vaccinated!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: And we'll eat dandellions and huckleberries.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: I'll make our money by midnight!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Let's wager somewhere in the middle.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: One hundred?
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: TEN THOUSAND!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: WOAH! Three-four.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Does that mean we can triple or quadruple our wages, Mr. Bear?
+    showCharacterSprite: 0
+  - characterName: Bear Boris
+    text: Yes, but please--
+    showCharacterSprite: 0
+  - characterName: Margot and Bubea
+    text: (in unison) Four, four, four, four, four!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Aw, our cards don't hunt.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: 2 times! Go big or go home! Ace up my sleeve! Luck of the draw--
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: 'This ain''t my first rodeo, buddy. '
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Our round's not over yet. There's nothing to worry 'bout.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Is the joker good?
+    showCharacterSprite: 0
+  - characterName: Bear Boris
+    text: I'm sorry.
+    showCharacterSprite: 0
+  - characterName: Bear Boris
+    text: I'm sorry. I'm so sorry, Mister Bunny.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Calm down, calm down, Bubea. It'll all be okay. It's a credit casino, remember?
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Hola.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Howdy Miste--
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: I'M SORRY! PLEASE FORGIVE ME! I NEVER MEANT TO USE ALL OF YOUR MONEY! PLEASE
+      GIVE ME ONE MORE CHANCE, I HAVE SO MANY RESEARCH PAPERS TO LIVE FOR!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Plea--
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: You're next, Ms. Marmot.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: WHERE'S BUBEA!?
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Wait, how ya know my last name?
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: SILENCE. Your dear friend's debts have been passed onto you.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: (whispers) Here we go again...
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: You have until 12 AM to pay it all... Or you'll be saying howdy to your
+      dorky bunny friend!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Your four little marmots. They're watching TV and eating the neighbor's
+      grass. They're next too!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Good luck.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: I HAVE TO MAKE THEIR MONEY BY MIDNIGHT!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Please...
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: I always bite back.
+    showCharacterSprite: 0
