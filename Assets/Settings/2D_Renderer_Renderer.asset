@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Name: NTSCFeature
   m_EditorClassIdentifier: Assembly-CSharp::CRTPostprocess.NTSCFeature
   m_Active: 1
-  bufferHeight: 480
-  outputHeight: 240
+  bufferHeight: 360
+  outputHeight: 180
   crossTalkMode: 1
   crossTalkStrength: 2
   brightness: 0.95
