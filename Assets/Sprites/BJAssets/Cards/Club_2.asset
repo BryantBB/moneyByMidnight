@@ -15,4 +15,4 @@ MonoBehaviour:
   _suit: 4
   _number: 2
   frontSprite: {fileID: -1079338362, guid: 9d86b3957be620443b6aed9a23ac4b33, type: 3}
-  backSprite: {fileID: -2134218915, guid: 95a13cbe89d72eb4f88b7ddb27f4ae4c, type: 3}
+  backSprite: {fileID: -622383408, guid: 9d86b3957be620443b6aed9a23ac4b33, type: 3}
