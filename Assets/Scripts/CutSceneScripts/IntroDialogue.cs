@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class IntroDialogue : MonoBehaviour
@@ -16,6 +17,20 @@ public class IntroDialogue : MonoBehaviour
     public GameObject margot;
     public GameObject bear;
     public GameObject hamm;
+    public GameObject casinobg;
+    public GameObject pokertable;
+    public GameObject sixspades;
+    public GameObject sevenhearts;
+    public GameObject acediamonds;
+    public GameObject kingdiamonds;
+    public GameObject queendiamonds;
+    public GameObject twoclubs;
+    public GameObject fourdiamonds;
+    public GameObject jackdiamonds;
+    public GameObject tendiamonds;
+    public GameObject deck;
+    public GameObject tenback;
+    public GameObject jackback;
     public RectTransform textTransform; // To move the text for padding
     private bool sceneActive = false;
     private Queue<Sentence> sentences; // A FIFO list of lines
@@ -38,6 +53,10 @@ public class IntroDialogue : MonoBehaviour
         {
             DisplayNextSentence();
             FixCharacter();
+            if (sentences.Count == 13 || sentences.Count == 15 || sentences.Count == 16 || sentences.Count == 19 || sentences.Count == 23)
+            {
+                PokerScene();
+            }
         }
     }
 
@@ -46,6 +65,7 @@ public class IntroDialogue : MonoBehaviour
         isDialogueActive = true;
         dialogueBox.SetActive(true);
         sentences.Clear();
+        resetCards();
 
         foreach (Sentence sentence in tree.sentences)
         {
@@ -61,6 +81,7 @@ public class IntroDialogue : MonoBehaviour
         if (sentences.Count == 0)
         {
             EndDialogue();
+            SceneManager.LoadScene("Title");
             return;
         }
 
@@ -78,6 +99,7 @@ public class IntroDialogue : MonoBehaviour
     
     public void FixCharacter()
     {
+        casinobg.SetActive(true);
         if ((nameText.text == "Bubea" || nameText.text == "Margot" || nameText.text == "Margot and Bubea") && (sentences.Count > 8))
         {
             bubea.SetActive(true);
@@ -107,6 +129,72 @@ public class IntroDialogue : MonoBehaviour
             bear.SetActive(true);
         }
         
+    }
+
+    public void PokerScene()
+    {
+        sceneActive = true;
+        resetCharacters();
+        pokertable.SetActive(true);
+        sixspades.SetActive(true);
+        sevenhearts.SetActive(true);
+        jackback.SetActive(true);
+        tenback.SetActive(true);
+        deck.SetActive(true);
+        if (sentences.Count <= 19)
+        {
+            acediamonds.SetActive(true);
+            kingdiamonds.SetActive(true);
+            queendiamonds.SetActive(true);
+        }
+        if (sentences.Count <= 16)
+        {
+            twoclubs.SetActive(true);
+        }
+        if (sentences.Count <= 15)
+        {
+            fourdiamonds.SetActive(true);
+        }
+        if (sentences.Count <= 13)
+        {
+            jackback.SetActive(false);
+            jackdiamonds.SetActive(true);
+            tenback.SetActive(false);
+            tendiamonds.SetActive(true);
+        }
+        Invoke("setNotScene", 4.0f);
+    }
+
+    void setNotScene()
+    {
+        sceneActive = false;
+        dialogueBox.SetActive(true);
+        FixCharacter();
+        resetCards();
+    }
+    void resetCharacters()
+    {
+        dialogueBox.SetActive(false);
+        bubea.SetActive(false);
+        margot.SetActive(false);
+        hamm.SetActive(false);
+        bear.SetActive(false);
+    }
+    void resetCards()
+    {
+        pokertable.SetActive(false);
+        sixspades.SetActive(false);
+        sevenhearts.SetActive(false);
+        jackback.SetActive(false);
+        tenback.SetActive(false);
+        deck.SetActive(false);
+        acediamonds.SetActive(false);
+        kingdiamonds.SetActive(false);
+        queendiamonds.SetActive(false);
+        twoclubs.SetActive(false);
+        fourdiamonds.SetActive(false);
+        jackdiamonds.SetActive(false);
+        tendiamonds.SetActive(false);
     }
 
     void ApplyPadding(float paddingAmount)
