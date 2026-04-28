@@ -12,6 +12,10 @@ public class IntroDialogue : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public GameObject dialogueBox;
+    public GameObject bubea;
+    public GameObject margot;
+    public GameObject bear;
+    public GameObject hamm;
     public RectTransform textTransform; // To move the text for padding
     private bool sceneActive = false;
     private Queue<Sentence> sentences; // A FIFO list of lines
@@ -33,6 +37,7 @@ public class IntroDialogue : MonoBehaviour
         if (isDialogueActive && (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame))
         {
             DisplayNextSentence();
+            FixCharacter();
         }
     }
 
@@ -48,6 +53,7 @@ public class IntroDialogue : MonoBehaviour
         }
 
         DisplayNextSentence();
+        FixCharacter();
     }
 
     public void DisplayNextSentence()
@@ -68,6 +74,39 @@ public class IntroDialogue : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(s.text));
+    }
+    
+    public void FixCharacter()
+    {
+        if ((nameText.text == "Bubea" || nameText.text == "Margot" || nameText.text == "Margot and Bubea") && (sentences.Count > 8))
+        {
+            bubea.SetActive(true);
+            margot.SetActive(true);
+            hamm.SetActive(false);
+            bear.SetActive(false);
+        }
+        if ((nameText.text == "Margot") && (sentences.Count <= 8))
+        {
+            bubea.SetActive(false);
+            margot.SetActive(true);
+            hamm.SetActive(false);
+            bear.SetActive(false);
+        }
+        if (nameText.text == "Dr. Hamm")
+        {
+            bubea.SetActive(false);
+            margot.SetActive(false);
+            hamm.SetActive(true);
+            bear.SetActive(false);
+        }
+        if (nameText.text == "Bear Boris")
+        {
+            bubea.SetActive(false);
+            margot.SetActive(false);
+            hamm.SetActive(false);
+            bear.SetActive(true);
+        }
+        
     }
 
     void ApplyPadding(float paddingAmount)
