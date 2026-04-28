@@ -21,7 +21,8 @@ public class Card : MonoBehaviour
         this.cardData = cardData;
         frontRenderer.sprite = cardData.frontSprite;
         backRenderer.sprite = cardData.backSprite;
-        transform.localScale = new Vector3(0.15f, 0.15f, 1.0f);
+        transform.localScale = new Vector3(1.3f, 1.3f, 1.0f);
+
     }
 
     public void FlipCard()
