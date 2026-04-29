@@ -90,6 +90,7 @@ public class BlackJController : MonoBehaviour
         if(dealerScore > 21)
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
+            BetManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
@@ -97,6 +98,7 @@ public class BlackJController : MonoBehaviour
         if(playerScore == 21)
         {
             BetManager.Instance.updateMoneyToBet(bet + bet + (bet/2));
+            BetManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
@@ -104,6 +106,7 @@ public class BlackJController : MonoBehaviour
         if(playerScore > dealerScore)
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
+            BetManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";

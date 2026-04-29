@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BetManager : MonoBehaviour
 {
@@ -13,17 +14,40 @@ public class BetManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        else
-        {
-            _moneytobet = 1000;
-        }
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // should only give starting money at the beginning and not resetting each time a scene loads
+        if (_moneytobet == 0)
+        {
+            _moneytobet = 1000;
+        }
+        
     }
 
     public void updateMoneyToBet(int moneyWonOrLost)
     {
         BetManager.Instance._moneytobet += moneyWonOrLost;
+        Debug.Log("Money changed!!! New total: " + _moneytobet);
     }
+
+    public void EndOfRoundCheck()
+    {
+        if (_moneytobet >= 100000)
+        {
+            SceneManager.LoadScene("WIN");
+        }
+        else if (_moneytobet <= 0)
+        {
+            _moneytobet = 0;
+            SceneManager.LoadScene("LOSE");
+        }
+    // TODO: IMPLEMENT TIME CONDITION LOSS
+    //       else if (_moneytobet < 100000 & time == endOfDay)
+    //     {
+    //         SceneManager.LoadScene("LOSE");
+    //     }
+    }
+
 }

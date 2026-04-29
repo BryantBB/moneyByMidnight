@@ -251,6 +251,7 @@ namespace UltimateTexasHoldEm
 
                 Balance += netReturn;
                 BetManager.Instance.updateMoneyToBet((int)netReturn);
+                BetManager.Instance.EndOfRoundCheck();
             }
 
             LastResult = result;

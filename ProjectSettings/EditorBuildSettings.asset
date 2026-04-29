@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Poker.unity
     guid: e25eb2f57760349a685aa75bc29951e4
+  - enabled: 1
+    path: Assets/Scenes/WIN.unity
+    guid: e07ed0c35b347457d8527766eb61123e
+  - enabled: 1
+    path: Assets/Scenes/LOSE.unity
+    guid: 9c26d43f213104ba4bf1ac8d019b0ec6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0d1ce2f4af358104faa85d361a141cb5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
