@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c27c057a871507b40ae1d619f21af8ca
+guid: 9ee985b03b0656a4db2de5b613e6266f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8766662352122455487
-    second: panzon3000_0
+      213: -5228375056298977939
+    second: bearBoris_eyesCovered_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panzon3000_0
+      name: bearBoris_eyesCovered_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 19
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14a53fbd90f865680800000000000000
-      internalID: -8766662352122455487
+      spriteID: d6559c066941177b0800000000000000
+      internalID: -5228375056298977939
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panzon3000_0: -8766662352122455487
+      bearBoris_eyesCovered_0: -5228375056298977939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c27c057a871507b40ae1d619f21af8ca
+guid: 5266bf6e76a45c146b95a405b4da9de3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8766662352122455487
-    second: panzon3000_0
+      213: -3903923797309629627
+    second: snakeyes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panzon3000_0
+      name: snakeyes_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 19
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14a53fbd90f865680800000000000000
-      internalID: -8766662352122455487
+      spriteID: 54b5a2f7df972d9c0800000000000000
+      internalID: -3903923797309629627
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panzon3000_0: -8766662352122455487
+      snakeyes_0: -3903923797309629627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
