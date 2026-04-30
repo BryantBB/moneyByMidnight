@@ -5,6 +5,7 @@ public class TimeManager : MonoBehaviour
 
     public static TimeManager Instance;
     public float _time;
+    public string timeString;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -50,6 +51,11 @@ public class TimeManager : MonoBehaviour
         int hours = Mathf.FloorToInt(_time);
         int minutes = Mathf.FloorToInt((_time - hours) * 60);
         string timeString = string.Format("{0:00}:{1:00}", hours, minutes);
+        this.timeString = timeString;
         Debug.Log("Current time: " + timeString);
+
+        // Update the UI
+        if (CasinoSettings.Instance != null)
+            CasinoSettings.Instance.updateTimeText(timeString);
     }
 }

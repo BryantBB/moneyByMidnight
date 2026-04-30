@@ -47,6 +47,7 @@ public class BlackJController : MonoBehaviour
         }
 
         TimeManager.Instance.updateTime(1/6f);
+        
 
         GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
