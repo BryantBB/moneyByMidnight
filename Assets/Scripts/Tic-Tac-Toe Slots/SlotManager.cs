@@ -14,7 +14,7 @@ public class SlotManager : MonoBehaviour
     private List<int> multipliers = new List<int>();
 
     private int nextSlot = 0;
-    private int lives = 3;
+    private int lives = 3; 
     private int totalPayout = 0;
     private int totalBet = 0;
 

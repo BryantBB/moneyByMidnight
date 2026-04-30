@@ -69,7 +69,10 @@ namespace UltimateTexasHoldEm
             ante = Mathf.Clamp(ante, minAnte, maxAnte);
             float cost = ante * 2f;
 
-            if (cost > Balance) { Msg("Insufficient balance."); return; }
+            if (cost > Balance) { 
+                Msg("Insufficient balance."); 
+                if (Balance < minAnte * 2f) BetManager.Instance.EndOfRoundCheck(); // end game if they can't afford min ante
+                return; }
 
             AnteBet        = ante;
             BlindBet       = ante;
@@ -152,10 +155,11 @@ namespace UltimateTexasHoldEm
         {
             if (Phase != GamePhase.Showdown) return;
 
-            if (Balance < minAnte * 2f)
+            if (Balance < minAnte * 2f && Balance <= 0)
             {
                 Msg("Insufficient Funds. Game Over.");
-                
+                BetManager.Instance.EndOfRoundCheck();
+                return;
             }
 
             PlayerHand.Clear();
@@ -236,6 +240,7 @@ namespace UltimateTexasHoldEm
                     DealerQualifies = true
                 };
                 // No balance change — bets were already deducted, nothing returned
+                BetManager.Instance.EndOfRoundCheck();
             }
             else
             {

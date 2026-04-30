@@ -33,6 +33,19 @@ public class BlackJController : MonoBehaviour
     public void StartDeal()
     {
         bet = ParseInput(betInput, 10); // adapted from josh's code
+
+        if (bet > BetManager.Instance._moneytobet)
+        {
+            Debug.Log("You're too broke for that bet!");
+            return;
+        }
+
+        if (BetManager.Instance._moneytobet <= 0)
+        {
+        BetManager.Instance.EndOfRoundCheck();
+        return;
+        }
+
         GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
@@ -78,6 +91,7 @@ public class BlackJController : MonoBehaviour
         if(playerScore > 21)
         {
             BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
+            BetManager.Instance.EndOfRoundCheck();
             return "Player Lost";
         }
         while (dealerScore < 17)
@@ -112,6 +126,7 @@ public class BlackJController : MonoBehaviour
             return "Player Won";
         }
         BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
+        BetManager.Instance.EndOfRoundCheck();
         return "Player Lost";
     }
 
