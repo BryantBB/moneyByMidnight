@@ -177,6 +177,8 @@ namespace UltimateTexasHoldEm
             _deck.Reset();
             _deck.Shuffle();
 
+            TimeManager.Instance.updateTime(1/6f);
+
             PokerSoundManager.PlaySound(PokerSound.DEAL);
 
             PlayerHand = _deck.DealMultiple(2);
@@ -241,6 +243,7 @@ namespace UltimateTexasHoldEm
                 };
                 // No balance change — bets were already deducted, nothing returned
                 BetManager.Instance.EndOfRoundCheck();
+                TimeManager.Instance.EndOfRoundCheck();
             }
             else
             {
@@ -257,6 +260,7 @@ namespace UltimateTexasHoldEm
                 Balance += netReturn;
                 BetManager.Instance.updateMoneyToBet((int)netReturn);
                 BetManager.Instance.EndOfRoundCheck();
+                TimeManager.Instance.EndOfRoundCheck();
             }
 
             LastResult = result;

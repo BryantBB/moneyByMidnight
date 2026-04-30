@@ -46,6 +46,8 @@ public class BlackJController : MonoBehaviour
         return;
         }
 
+        TimeManager.Instance.updateTime(1/6f);
+
         GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
         GameObject.Find("CurrentBet").GetComponent<TextMeshProUGUI>().text = "Current Bet: " + bet.ToString();
         betPanel.SetActive(false);
@@ -91,6 +93,7 @@ public class BlackJController : MonoBehaviour
         if(playerScore > 21)
         {
             BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
+            TimeManager.Instance.EndOfRoundCheck();
             BetManager.Instance.EndOfRoundCheck();
             return "Player Lost";
         }
@@ -105,6 +108,7 @@ public class BlackJController : MonoBehaviour
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
             BetManager.Instance.EndOfRoundCheck();
+            TimeManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
@@ -113,6 +117,7 @@ public class BlackJController : MonoBehaviour
         {
             BetManager.Instance.updateMoneyToBet(bet + bet + (bet/2));
             BetManager.Instance.EndOfRoundCheck();
+            TimeManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
@@ -121,12 +126,14 @@ public class BlackJController : MonoBehaviour
         {
             BetManager.Instance.updateMoneyToBet(bet + bet);
             BetManager.Instance.EndOfRoundCheck();
+            TimeManager.Instance.EndOfRoundCheck();
             GameObject.Find("MoneyToBet").GetComponent<TextMeshProUGUI>().text = "Money: " + BetManager.Instance._moneytobet.ToString();
             BlackjackSoundManager.PlaySound(BlackjackSound.WIN);
             return "Player Won";
         }
         BlackjackSoundManager.PlaySound(BlackjackSound.LOSE);
         BetManager.Instance.EndOfRoundCheck();
+        TimeManager.Instance.EndOfRoundCheck();
         return "Player Lost";
     }
 
