@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9e948b519b143298eab0cdd9b06378, type: 3}
+  m_Name: GoodEnding
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTree
+  sentences:
+  - characterName: Margot
+    text: I made the money by midnight!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Felicidades, Ms. Marmot. I'm impressed by your gambling skills. Now sho!
+      Adios, ma'am.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Hold up, sharkie boy. Where is Bubea?
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Recuerda, Ms. Marmot. I killed Bubea in cold blood! He is super gone. Gone
+      to a better life!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Well, I have him on BeeHive360 and it says he's in the restroom!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Is this Margot?
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: No.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: (faking a deep voice) Occupied.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: BUBEA.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Mr. Shark, I think Margot caught us.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: What's this all 'bout?
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Financial literacy...I heard from Bubea that your children were unclothed,
+      unvaccinated, unschooled, and unfed.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: I SWEAR I DIDN'T LOOK AT YOUR SAD LIVING SITUATION THROUGH YOUR WINDOW!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Anyways. I didn't shank your friend. I taught him financial literacy!
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Yep. I'm opening a 401k and putting forty to needs, thirty to wants, and
+      twenty to savings!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: What's the other ten for?
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Gambling!
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: BUBEA!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Now, Ms. Marmot. You have proven yourself worthy of financial stability.
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Thus, after evading taxes, I will award you $77,421.67.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: REALLY!?
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: Mucho.
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: Thank you so much, Mr. Sharkie! I will not use this money for gambling!
+      I promise.
+    showCharacterSprite: 0
+  - characterName: Bubea
+    text: Now, now, now. Ain't this supposed to be a casino?
+    showCharacterSprite: 0
+  - characterName: Margot
+    text: YEAH!
+    showCharacterSprite: 0
+  - characterName: Dr. Hamm
+    text: SI!
+    showCharacterSprite: 0
+  - characterName: Golden Dr. Hamm
+    text: You're me.
+    showCharacterSprite: 0
