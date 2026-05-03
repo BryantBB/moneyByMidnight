@@ -28841,9 +28841,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.002259887
-    width: 0.99941623
-    height: 0.9943503
+    y: 0
+    width: 2
+    height: 2.6666667
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -143203,7 +143203,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5266bf6e76a45c146b95a405b4da9de3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7f6c27adcc77492cb0afc9c95a9c95b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143211,7 +143211,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1873115881
 Transform:
@@ -152503,6 +152503,10 @@ PrefabInstance:
     - target: {fileID: 7096029547555579997, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527703275682507932, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.33810234
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
