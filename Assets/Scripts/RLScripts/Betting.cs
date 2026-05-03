@@ -162,7 +162,9 @@ public class Betting : MonoBehaviour
 
         // FINAL RESOLUTION
         BetManager.Instance.updateMoneyToBet(-totalBet); // Subtract what was risked
+        TimeManager.Instance.updateTime(1/6f);
         BetManager.Instance.updateMoneyToBet(roundWinnings); // Add what was won
+        TimeManager.Instance.EndOfRoundCheck();
         BetManager.Instance.EndOfRoundCheck();
 
         if (roundWinnings > 0)

@@ -192,8 +192,10 @@ public class SlotManager : MonoBehaviour
         if (lives <= 0)
         {
             slotButton.Disable();
+            TimeManager.Instance.updateTime(1/6f);
             if (BetManager.Instance != null) {
                 BetManager.Instance.updateMoneyToBet(totalPayout);
+                TimeManager.Instance.EndOfRoundCheck();
                 BetManager.Instance.EndOfRoundCheck();
             }
         }
