@@ -1,16 +1,17 @@
 using UnityEngine;
 using TMPro;
 
-
+// received help from Ella on how to implement consistent, non destroyable time manager
+// through her work in betManager
 public class TimeManager : MonoBehaviour
 {
 
     public static TimeManager Instance;
-    public float _time;
+    public float time;
     public string timeString;
+
     [SerializeField] private TMP_Text timeText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         if (Instance != null)
@@ -21,23 +22,23 @@ public class TimeManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        if (_time == 0.0f)
+        if (time == 0.0f)
         {
-            _time = 6.0f; // starting time is 6pm
+            time = 6.0f; // starting time is 6pm
         }
     }
 
     // Update is called once per frame
     public void updateTime(float timeToAdd)
     {
-        _time += timeToAdd;
+        time += timeToAdd;
         generateTimeString();
         displayTime();
     }
 
     public void EndOfRoundCheck()
     {
-        if (_time >= 12.0f)
+        if (time >= 12.0f) // check if it is midnight or later, then end game and asses winnings
         {
             if (BetManager.Instance._moneytobet < 100000)
             {
@@ -53,15 +54,16 @@ public class TimeManager : MonoBehaviour
 
     public void generateTimeString()
     {
-        int hours = Mathf.FloorToInt(_time);
-        int minutes = Mathf.FloorToInt((_time - hours) * 60);
+        int hours = Mathf.FloorToInt(time);
+        int minutes = Mathf.CeilToInt((time - hours) * 60);
         timeString = string.Format("{0:00}:{1:00}", hours, minutes);
-        Debug.Log("Current time: " + timeString);
+        // Debug.Log("Current time: " + timeString);
     }
 
-    public void displayTime()
+    public void displayTime() // changing the time text box
     {
         if (timeText) timeText.text = $"Time: {timeString} PM";
     }
+
 
 }

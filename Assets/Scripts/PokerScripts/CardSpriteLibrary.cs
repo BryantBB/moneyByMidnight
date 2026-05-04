@@ -4,35 +4,7 @@ using UnityEngine;
 
 namespace UltimateTexasHoldEm
 {
-    /// <summary>
-    /// Loads and caches card sprites from the Asset_PlayingCards / Deck01 prefabs.
-    ///
-    /// ── PREFAB STRUCTURE (confirmed from Deck01_Club_2.prefab) ─────────────
-    ///
-    ///   Deck01_Club_2  (root)
-    ///    ├── Front      (SpriteRenderer)  ← card face, child name "Front "
-    ///    └── Back_D1    (SpriteRenderer)  ← card back, child name "Back_D1"
-    ///
-    ///  Every card prefab contains BOTH the front AND the back sprite.
-    ///  There is no separate back prefab — Back_D1 is the same in every card.
-    ///  This script extracts both sprites from one prefab load per card.
-    ///
-    /// ── ONE-TIME SETUP ──────────────────────────────────────────────────────
-    ///
-    ///  Resources.Load only works on assets inside a folder named "Resources".
-    ///  Your prefabs are in Assets/Asset_PlayingCards/Prefabs/Deck01/ which is
-    ///  outside Resources, so do this once:
-    ///
-    ///  1. Create:  Assets/Asset_PlayingCards/Resources/Deck01/
-    ///
-    ///  2. Select all prefabs in Prefabs/Deck01/ → Ctrl+D to duplicate →
-    ///     drag the duplicates into Resources/Deck01/
-    ///     (They stay linked to the same sprites — no data is copied.)
-    ///
-    ///  3. Attach this script to your GameManager (persistent) object.
-    ///     The Inspector defaults are already correct — no changes needed.
-    /// ───────────────────────────────────────────────────────────────────────
-    /// </summary>
+    
     public class CardSpriteLibrary : MonoBehaviour
     {
         // ── Singleton ─────────────────────────────────────────────────────────

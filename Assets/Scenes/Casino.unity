@@ -6663,17 +6663,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230834529}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1744486580}
+  m_Father: {fileID: 1189646701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -93.54, y: 75.869}
-  m_SizeDelta: {x: 102.92, y: 22.263}
+  m_AnchoredPosition: {x: 2, y: -2}
+  m_SizeDelta: {x: 125.546, y: 17.235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230834531
 MonoBehaviour:
@@ -6695,7 +6695,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Time: 06:00 PM
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f9aa37987194f64ebeee01dad058a5d, type: 2}
   m_sharedMaterial: {fileID: -2449852506873499995, guid: 9f9aa37987194f64ebeee01dad058a5d, type: 2}
@@ -6729,7 +6731,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6761,7 +6763,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.8380203, y: 0, z: 0.000000033682237, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -28910,6 +28912,82 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1189646700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189646701}
+  - component: {fileID: 1189646703}
+  - component: {fileID: 1189646702}
+  m_Layer: 5
+  m_Name: Time Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1189646701
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189646700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 230834530}
+  m_Father: {fileID: 1744486580}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.3510132, y: -0.8829956}
+  m_SizeDelta: {x: -182.681, y: -160.986}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1189646702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189646700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.052503396, g: 0.03488786, b: 0.1509434, a: 0.80784315}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1189646703
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189646700}
+  m_CullTransparentMesh: 1
 --- !u!114 &1189701885 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2300810917352974500, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
@@ -139228,6 +139306,7 @@ GameObject:
   - component: {fileID: 1744486582}
   - component: {fileID: 1744486581}
   - component: {fileID: 1744486584}
+  - component: {fileID: 1744486585}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -139252,7 +139331,7 @@ RectTransform:
   - {fileID: 1581187808}
   - {fileID: 611146734}
   - {fileID: 1709298505}
-  - {fileID: 230834530}
+  - {fileID: 1189646701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -139338,6 +139417,19 @@ MonoBehaviour:
   _time: 0
   timeString: 
   timeText: {fileID: 230834531}
+--- !u!114 &1744486585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744486579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6b04be1ea224a6e8efb17938016a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TogglePanel
+  targetPanel: {fileID: 1189646700}
 --- !u!1 &1776775237
 GameObject:
   m_ObjectHideFlags: 0
@@ -152527,6 +152619,10 @@ PrefabInstance:
     - target: {fileID: 7096029547555579997, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527703275682507932, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.95288086
       objectReference: {fileID: 0}
     - target: {fileID: 7527703275682507932, guid: fe50ff7d8a27f9f4e9e4eba5c7bb1ccc, type: 3}
       propertyPath: m_AnchoredPosition.y

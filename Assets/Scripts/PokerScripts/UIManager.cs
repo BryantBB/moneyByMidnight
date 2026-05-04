@@ -11,56 +11,37 @@ namespace UltimateTexasHoldEm
     /// </summary>
     public class UIManager : MonoBehaviour
     {
-        // ── Controller ────────────────────────────────────────────────────────
-        [Header("Controller")]
+
         [SerializeField] private GameController game;
 
-        // ── HUD Text ──────────────────────────────────────────────────────────
-        [Header("HUD")]
         [SerializeField] private TMP_Text balanceText;
         [SerializeField] private TMP_Text phaseText;
 
-        // ── Bet Input ─────────────────────────────────────────────────────────
-        [Header("Bet Input")]
         [SerializeField] private TMP_InputField anteInput;
-
-        // ── Live Bet Labels ───────────────────────────────────────────────────
-        [Header("Bet Labels (live)")]
         [SerializeField] private TMP_Text anteBetLabel;
         [SerializeField] private TMP_Text blindBetLabel;
         [SerializeField] private TMP_Text playBetLabel;
 
         [SerializeField] private GameObject betLabels;
 
-        // ── Card Areas ────────────────────────────────────────────────────────
-        [Header("Card Areas")]
         [SerializeField] private Transform playerCardArea;
         [SerializeField] private Transform dealerCardArea;
         [SerializeField] private Transform communityCardArea;
 
-        [Tooltip("Prefab with a CardView component. See CardView.cs for structure.")]
         [SerializeField] private GameObject cardPrefab;
 
-        // ── Button Panels ─────────────────────────────────────────────────────
-        [Header("Action Panels (one per phase)")]
         [SerializeField] private GameObject betPanel;
         [SerializeField] private GameObject preFlopPanel;
         [SerializeField] private GameObject flopPanel;
         [SerializeField] private GameObject turnRiverPanel;
         [SerializeField] private GameObject showdownPanel;
 
-        // ── Result Display ────────────────────────────────────────────────────
-        [Header("Result")]
         [SerializeField] private TMP_Text resultText;
         [SerializeField] private TMP_Text playerHandText;
         [SerializeField] private TMP_Text dealerHandText;
 
-        // ── Optional Screen Flash ─────────────────────────────────────────────
-        [Header("Win/Lose Flash (optional)")]
-        [Tooltip("Full-screen Image that briefly pulses green/red on round end. Raycast Target must be OFF.")]
         [SerializeField] private Image screenFlash;
 
-        // help screen objects
         [SerializeField] private GameObject helpButton;
         [SerializeField] private GameObject helpPanel;
 
