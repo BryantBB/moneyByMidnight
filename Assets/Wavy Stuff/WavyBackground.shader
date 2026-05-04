@@ -1,4 +1,4 @@
-Shader "Custom/EarthboundBackground"
+Shader "Custom/WavyBackground"
 {
     Properties
     {
