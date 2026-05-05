@@ -3,6 +3,7 @@ Shader "Custom/WavyBackground"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Alpha ("Transparency", Range(0,1)) = 1.0
         
         [Header(Tiling and Scrolling)]
         _Tiling ("Texture Tiling", Vector) = (5.0, 5.0, 0, 0)
@@ -21,8 +22,17 @@ Shader "Custom/WavyBackground"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "PreviewType"="Plane" }
+        Tags { 
+            "RenderType"="Transparent" 
+            "Queue"="Transparent" 
+            "IgnoreProjector"="True" 
+            "PreviewType"="Plane" 
+        }
+        
         LOD 100
+        
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -45,14 +55,13 @@ Shader "Custom/WavyBackground"
 
             sampler2D _MainTex;
             float4 _Tiling;
+            float _Alpha;
             
             float _ScrollSpeedX;
             float _ScrollSpeedY;
-            
             float _WaveSpeedX;
             float _WaveFreqX;
             float _WaveAmpX;
-            
             float _WaveSpeedY;
             float _WaveFreqY;
             float _WaveAmpY;
@@ -79,6 +88,9 @@ Shader "Custom/WavyBackground"
                 uv.y += _Time.y * _ScrollSpeedY;
 
                 fixed4 col = tex2D(_MainTex, uv);
+                
+                col.a *= _Alpha;
+                
                 return col;
             }
             ENDCG
