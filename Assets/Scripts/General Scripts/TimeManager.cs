@@ -34,6 +34,8 @@ public class TimeManager : MonoBehaviour
         time += timeToAdd;
         generateTimeString();
         displayTime();
+        Debug.Log("update");
+
     }
 
     public void EndOfRoundCheck()
@@ -57,12 +59,14 @@ public class TimeManager : MonoBehaviour
         int hours = Mathf.FloorToInt(time);
         int minutes = Mathf.CeilToInt((time - hours) * 60);
         timeString = string.Format("{0:00}:{1:00}", hours, minutes);
-        // Debug.Log("Current time: " + timeString);
+        Debug.Log("Current time: " + timeString);
     }
 
     public void displayTime() // changing the time text box
     {
         if (timeText) timeText.text = $"Time: {timeString} PM";
+        Debug.Log("display");
+
     }
 
 

@@ -5,6 +5,10 @@ public class TogglePanel : MonoBehaviour
 {
     public GameObject timePanel;
 
+    void Update() {
+        KeyCheck();
+    }
+    
     void KeyCheck()
     {
         if (Keyboard.current.tKey.wasPressedThisFrame) // checks for the 'T' key

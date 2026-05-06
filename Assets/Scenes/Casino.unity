@@ -29055,15 +29055,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.002259887
-    width: 1
-    height: 0.9943503
+    x: 0.001908397
+    y: 0
+    width: 0.9961832
+    height: 0.99841523
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.75
+  orthographic size: 13.125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -139414,7 +139414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be86287a3e9c4d20be074592605a2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  _time: 0
+  time: 0
   timeString: 
   timeText: {fileID: 230834531}
 --- !u!114 &1744486585
@@ -139429,7 +139429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6b04be1ea224a6e8efb17938016a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TogglePanel
-  targetPanel: {fileID: 1189646700}
+  timePanel: {fileID: 1189646700}
 --- !u!1 &1776775237
 GameObject:
   m_ObjectHideFlags: 0
